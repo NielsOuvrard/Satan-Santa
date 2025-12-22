@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhi73g21fjhpf"
-path="res://.godot/imported/Ruben.png-9085bf6e0080933b8acec8bdad8ae0bd.ctex"
+uid="uid://bp01610vyit4x"
+path="res://.godot/imported/right_lockers.png-beddf4e6a568a414f72021d3df1d1b8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ruben/Ruben.png"
-dest_files=["res://.godot/imported/Ruben.png-9085bf6e0080933b8acec8bdad8ae0bd.ctex"]
+source_file="res://objects/lokcers/right_lockers.png"
+dest_files=["res://.godot/imported/right_lockers.png-beddf4e6a568a414f72021d3df1d1b8f.ctex"]
 
 [params]
 

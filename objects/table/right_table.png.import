@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhi73g21fjhpf"
-path="res://.godot/imported/Ruben.png-9085bf6e0080933b8acec8bdad8ae0bd.ctex"
+uid="uid://cuqqxco1u3kof"
+path="res://.godot/imported/right_table.png-d806d37265afab4ae6c9211693d737bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ruben/Ruben.png"
-dest_files=["res://.godot/imported/Ruben.png-9085bf6e0080933b8acec8bdad8ae0bd.ctex"]
+source_file="res://objects/table/right_table.png"
+dest_files=["res://.godot/imported/right_table.png-d806d37265afab4ae6c9211693d737bf.ctex"]
 
 [params]
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://btpqyj48dxds7"]
+
+[ext_resource type="Texture2D" uid="uid://ca36m7xckbs74" path="res://objects/computer/yellow_computer.png" id="1_1v14l"]
+
+[node name="YellowComputer" type="Sprite2D"]
+texture = ExtResource("1_1v14l")

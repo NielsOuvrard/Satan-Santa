@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3bxbh52rk7y0"]
+
+[ext_resource type="Texture2D" uid="uid://0etbtqin4cfc" path="res://objects/lokcers/left_lockers.png" id="1_87fsa"]
+[ext_resource type="Texture2D" uid="uid://bp01610vyit4x" path="res://objects/lokcers/right_lockers.png" id="2_1jh71"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knrtf"]
+size = Vector2(58, 24)
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="LeftLockers" type="Sprite2D" parent="."]
+position = Vector2(-16, -1)
+texture = ExtResource("1_87fsa")
+
+[node name="RightLockers" type="Sprite2D" parent="."]
+position = Vector2(16, -1)
+texture = ExtResource("2_1jh71")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_knrtf")

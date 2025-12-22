@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsgnnlijpelxb"]
+
+[ext_resource type="Texture2D" uid="uid://3ppc2gqhtykf" path="res://objects/whiteboard/left_whiteboard.png" id="1_qevgk"]
+[ext_resource type="Texture2D" uid="uid://ckhomwuq6qjcq" path="res://objects/whiteboard/right_whiteboard.png" id="2_mg5qq"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LeftWhiteboard" type="Sprite2D" parent="."]
+position = Vector2(-16, -1)
+texture = ExtResource("1_qevgk")
+
+[node name="RightWhiteboard" type="Sprite2D" parent="."]
+position = Vector2(16, -1)
+texture = ExtResource("2_mg5qq")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnbn3xbg30ycr"]
+
+[ext_resource type="Texture2D" uid="uid://hqo6gjertlpo" path="res://objects/desks/right_mini_desk.png" id="1_nnegk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u11gp"]
+size = Vector2(9, 31)
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="RightMiniDesk" type="Sprite2D" parent="."]
+texture = ExtResource("1_nnegk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11.5, 4.5)
+shape = SubResource("RectangleShape2D_u11gp")

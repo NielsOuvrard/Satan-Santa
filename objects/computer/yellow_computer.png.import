@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhi73g21fjhpf"
-path="res://.godot/imported/Ruben.png-9085bf6e0080933b8acec8bdad8ae0bd.ctex"
+uid="uid://ca36m7xckbs74"
+path="res://.godot/imported/yellow_computer.png-2fcded11a23c24ea633bc88f683dd6f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ruben/Ruben.png"
-dest_files=["res://.godot/imported/Ruben.png-9085bf6e0080933b8acec8bdad8ae0bd.ctex"]
+source_file="res://objects/computer/yellow_computer.png"
+dest_files=["res://.godot/imported/yellow_computer.png-2fcded11a23c24ea633bc88f683dd6f1.ctex"]
 
 [params]
 

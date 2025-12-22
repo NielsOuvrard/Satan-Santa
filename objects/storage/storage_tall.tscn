@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0svbsk6gfsdl"]
+
+[ext_resource type="Texture2D" uid="uid://pw0mbxah3yai" path="res://objects/storage/storage1.png" id="1_fflbr"]
+[ext_resource type="Texture2D" uid="uid://dhg7xueof5be8" path="res://objects/storage/storage2.png" id="2_lyrcx"]
+[ext_resource type="Texture2D" uid="uid://hcq2l1nn4xgo" path="res://objects/storage/storage3.png" id="3_ie18o"]
+[ext_resource type="Texture2D" uid="uid://cuokyxe7d3nf0" path="res://objects/storage/storage4.png" id="4_063im"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6poi"]
+size = Vector2(23, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1wx5"]
+size = Vector2(12, 52)
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="Storage1" type="Sprite2D" parent="."]
+position = Vector2(-10, 6)
+texture = ExtResource("1_fflbr")
+
+[node name="Storage2" type="Sprite2D" parent="."]
+position = Vector2(22, 2)
+texture = ExtResource("2_lyrcx")
+
+[node name="Storage3" type="Sprite2D" parent="."]
+position = Vector2(22, -27)
+texture = ExtResource("3_ie18o")
+
+[node name="Storage4" type="Sprite2D" parent="."]
+position = Vector2(-10, -26)
+texture = ExtResource("4_063im")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-14.5, -9)
+shape = SubResource("RectangleShape2D_a6poi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(3, -16)
+shape = SubResource("RectangleShape2D_e1wx5")

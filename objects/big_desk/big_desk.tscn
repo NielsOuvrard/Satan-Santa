@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7y8xgxfagyw7"]
+
+[ext_resource type="Texture2D" uid="uid://bdwonneb3hjqg" path="res://objects/big_desk/left_desk.png" id="1_qlb7w"]
+[ext_resource type="Texture2D" uid="uid://dpkif270lrprw" path="res://objects/big_desk/right_desc.png" id="2_n6nfl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7xxb"]
+size = Vector2(56, 37)
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="LeftDesk" type="Sprite2D" parent="."]
+position = Vector2(-16, -1)
+texture = ExtResource("1_qlb7w")
+
+[node name="RightDesc" type="Sprite2D" parent="."]
+position = Vector2(16, -1)
+texture = ExtResource("2_n6nfl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_u7xxb")

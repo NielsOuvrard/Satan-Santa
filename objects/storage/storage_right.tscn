@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4ysp7gits2b0"]
+
+[ext_resource type="Texture2D" uid="uid://fxdlpjp0nj3s" path="res://objects/storage/storage_right.png" id="1_tugv4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_206qn"]
+size = Vector2(20, 36)
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="StorageRight" type="Sprite2D" parent="."]
+texture = ExtResource("1_tugv4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 3)
+shape = SubResource("RectangleShape2D_206qn")
