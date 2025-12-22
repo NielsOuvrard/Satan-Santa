@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://bmcji5q2g1jm2"]
+[gd_scene load_steps=33 format=4 uid="uid://bmcji5q2g1jm2"]
 
 [ext_resource type="PackedScene" uid="uid://btxem26gkakob" path="res://Ruben/ruben.tscn" id="1_q2by6"]
 [ext_resource type="Material" uid="uid://d8itjhhwftav" path="res://tres/scene.tres" id="1_q887t"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://b7t1daem261f6" path="res://objects/tiles/void.png" id="3_drj00"]
 [ext_resource type="Texture2D" uid="uid://c4mj45ycl5r3p" path="res://objects/tiles/wall.png" id="4_h0whk"]
 [ext_resource type="Texture2D" uid="uid://jqlygjaeyawr" path="res://objects/tiles/wall_bottom.png" id="5_8ney4"]
-[ext_resource type="PackedScene" uid="uid://bh5vrj1aoenr6" path="res://objects/torch-item/torch_item.tscn" id="3_mjqm4"]
 [ext_resource type="PackedScene" uid="uid://v5761xp46n7v" path="res://objects/door/door.tscn" id="5_yi8ki"]
 [ext_resource type="Texture2D" uid="uid://biscfa85i2jd5" path="res://objects/tiles/wall_top.png" id="6_1fj1r"]
 [ext_resource type="PackedScene" uid="uid://cpem1fhw6wxum" path="res://objects/mcdo bag/mcdo_bag.tscn" id="6_h275r"]
@@ -18,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://br2tb12dx7baf" path="res://objects/tiles/wall_void_top_left.png" id="10_tfqty"]
 [ext_resource type="Texture2D" uid="uid://cclrov2gn1ups" path="res://objects/tiles/wall_void_top_right.png" id="11_1t6af"]
 [ext_resource type="PackedScene" uid="uid://2vxreuiq7cse" path="res://objects/desks/computer_desk.tscn" id="17_drj00"]
+[ext_resource type="PackedScene" uid="uid://bmi4cgdah6tri" path="res://objects/lights/hanging_lamp.tscn" id="18_h0whk"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_enp5j"]
 frequency = 0.0021
@@ -191,5 +191,14 @@ color = Color(0, 0, 0, 0.8627451)
 [node name="TorchItem" parent="." instance=ExtResource("6_q887t")]
 position = Vector2(3, 55)
 
-[node name="HangingLamp2" parent="." instance=ExtResource("7_yi8ki")]
-position = Vector2(-51, -90)
+[node name="HangingLamp" parent="." instance=ExtResource("18_h0whk")]
+position = Vector2(-139, -126)
+
+[node name="HangingLamp2" parent="." instance=ExtResource("18_h0whk")]
+position = Vector2(-56, -157)
+
+[node name="HangingLamp3" parent="." instance=ExtResource("18_h0whk")]
+position = Vector2(5, -156)
+
+[node name="HangingLamp4" parent="." instance=ExtResource("18_h0whk")]
+position = Vector2(70, -152)
