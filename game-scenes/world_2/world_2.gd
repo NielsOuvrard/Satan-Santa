@@ -1,12 +1,18 @@
 extends Node2D
 
-@onready var door: Area2D = $Door
-
-@onready var key: Area2D = $Key
+var doors = []
 
 func _ready() -> void:
-	SignalHandler.key_collected.connect(_open_the_door)
+	doors = [
+		$Door,
+		$Door2,
+		$Door3,
+		$Door4
+	]
+	SignalHandler.key_collected.connect(_new_key_collected)
 
 
-func _open_the_door(id: int):
-	door.locked = false
+func _new_key_collected(id: int):
+	print("Signal received in world_2! Key ID: %d" % id)
+	doors[id].unlock()
+	print("Door %d unlocked!" % id)

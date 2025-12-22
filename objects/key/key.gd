@@ -7,6 +7,6 @@ func _on_ready() -> void:
 
 func _on_collected(_player: Node2D) -> void:
 	# Add logic when key is collected (e.g., unlock doors, add to inventory)
-	print("Key collected!")
 	SignalHandler.key_collected.emit(frame)
+	print("Key {%d} collected!" % frame)
 	queue_free()
