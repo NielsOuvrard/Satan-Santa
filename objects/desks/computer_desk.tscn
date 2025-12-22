@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://2vxreuiq7cse"]
+
+[ext_resource type="Texture2D" uid="uid://bx4tu30ssgetc" path="res://objects/desks/computer_desk.png" id="1_7wxjn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wxjn"]
+size = Vector2(2.8999996, 1.5000001)
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="ComputerDesk" type="Sprite2D" parent="."]
+texture = ExtResource("1_7wxjn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.9802322e-08, 9.499999)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_7wxjn")
