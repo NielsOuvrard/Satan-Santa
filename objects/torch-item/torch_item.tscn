@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh5vrj1aoenr6"]
+
+[ext_resource type="Texture2D" uid="uid://c1xlwkvgn724v" path="res://objects/torch-item/TorchItem.png" id="1_o5x3u"]
+[ext_resource type="Script" uid="uid://bm0capmqrgujg" path="res://objects/torch-item/torch_item.gd" id="1_torch"]
+[ext_resource type="Texture2D" uid="uid://cfbsbntfyd7do" path="res://objects/common/shadow_small.png" id="2_rgf56"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rikhp"]
+radius = 14.035668
+
+[node name="TorchItem" type="Area2D"]
+script = ExtResource("1_torch")
+
+[node name="TorchItem" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = ExtResource("1_o5x3u")
+
+[node name="ShadowSmall" type="Sprite2D" parent="."]
+texture = ExtResource("2_rgf56")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_rikhp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

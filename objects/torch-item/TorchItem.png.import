@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4eka13n5i228"
-path="res://.godot/imported/Ruben.png-0ef19422bae898e299df4b7c4b5250f7.ctex"
+uid="uid://c1xlwkvgn724v"
+path="res://.godot/imported/TorchItem.png-380bc98dce7040b5cfb268a3bd00bf56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Ruben.png"
-dest_files=["res://.godot/imported/Ruben.png-0ef19422bae898e299df4b7c4b5250f7.ctex"]
+source_file="res://objects/torch-item/TorchItem.png"
+dest_files=["res://.godot/imported/TorchItem.png-380bc98dce7040b5cfb268a3bd00bf56.ctex"]
 
 [params]
 

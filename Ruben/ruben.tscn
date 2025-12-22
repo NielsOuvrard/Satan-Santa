@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://btxem26gkakob"]
 
-[ext_resource type="Texture2D" uid="uid://4eka13n5i228" path="res://assets/Ruben.png" id="1_pryvl"]
+[ext_resource type="Texture2D" uid="uid://4eka13n5i228" path="res://Ruben/Ruben.png" id="1_pryvl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pryvl"]
 

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmcji5q2g1jm2"]
+[gd_scene load_steps=6 format=3 uid="uid://bmcji5q2g1jm2"]
 
 [ext_resource type="PackedScene" uid="uid://btxem26gkakob" path="res://Ruben/ruben.tscn" id="1_q2by6"]
 [ext_resource type="PackedScene" uid="uid://c7sj0wkvmq6u3" path="res://player/player.tscn" id="2_mjqm4"]
+[ext_resource type="PackedScene" uid="uid://bh5vrj1aoenr6" path="res://objects/torch-item/torch_item.tscn" id="3_mjqm4"]
+[ext_resource type="PackedScene" uid="uid://v5761xp46n7v" path="res://objects/door/door.tscn" id="5_yi8ki"]
+[ext_resource type="PackedScene" uid="uid://b0bc6hryk0gul" path="res://objects/mcdo bag/mcdo_bag.tscn" id="6_h275r"]
 
 [node name="Scene" type="Node2D"]
 
@@ -20,11 +23,20 @@ offset_bottom = 38.0
 scale = Vector2(4.454, 1)
 color = Color(0.5, 0.5, 0.5, 1)
 
+[node name="Door" parent="." instance=ExtResource("5_yi8ki")]
+position = Vector2(266, 6)
+
+[node name="TorchItem" parent="." instance=ExtResource("3_mjqm4")]
+position = Vector2(116, -1)
+
 [node name="Ruben" parent="." instance=ExtResource("1_q2by6")]
+position = Vector2(-48, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_mjqm4")]
-position = Vector2(54, 0)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(27, -33)
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -33)
 zoom = Vector2(6, 6)
+
+[node name="Item" parent="." instance=ExtResource("6_h275r")]
+position = Vector2(50, -5)
