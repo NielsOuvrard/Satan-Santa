@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://btxem26gkakob"]
+[gd_scene load_steps=5 format=3 uid="uid://btxem26gkakob"]
 
 [ext_resource type="Texture2D" uid="uid://4eka13n5i228" path="res://Ruben/Ruben.png" id="1_pryvl"]
+[ext_resource type="Script" path="res://Ruben/ruben.gd" id="2_script"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pryvl"]
 
@@ -9,6 +10,7 @@ radius = 7.0000157
 height = 16.000036
 
 [node name="Ruben" type="CharacterBody2D"]
+script = ExtResource("2_script")
 
 [node name="Ruben" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
