@@ -19,9 +19,8 @@ func _ready() -> void:
 	SignalHandler.torch_visibility_changed.connect(_on_torch_visibility_changed)
 
 
-func _on_torch_visibility_changed(visible: bool) -> void:
-	torch_handled.visible = visible
-	point_light_2d.enabled = visible
+func _on_torch_visibility_changed(should_be_visible: bool) -> void:
+	torch_handled.visible = should_be_visible
 
 
 func _physics_process(_delta: float) -> void:
