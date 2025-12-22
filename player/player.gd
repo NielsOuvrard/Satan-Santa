@@ -4,24 +4,14 @@ const SPEED = 100.0
 
 @onready var player: Sprite2D = $Player
 @onready var torch_handled: Sprite2D = $TorchHandled
-@onready var point_light_2d: PointLight2D = $Torch
-
-var local_torch_position: Vector2
-var point_light_position: Vector2
-
 
 func _ready() -> void:
 	add_to_group("player")
-	print("point_light_2d.rotation")
-	print(point_light_2d.rotation)
-	local_torch_position = torch_handled.position
-	point_light_position = point_light_2d.position
 	SignalHandler.torch_visibility_changed.connect(_on_torch_visibility_changed)
 
 
 func _on_torch_visibility_changed(visible: bool) -> void:
 	torch_handled.visible = visible
-	point_light_2d.enabled = visible
 
 
 func _physics_process(_delta: float) -> void:
@@ -36,22 +26,22 @@ func _physics_process(_delta: float) -> void:
 		
 		if input_x > 0:
 			player.flip_h = false
-			
-			torch_handled.flip_h = false
-			torch_handled.position.x = local_torch_position.x
-			
-			point_light_2d.position.x = point_light_position.x
-			point_light_2d.rotation = PI
 		else:
 			player.flip_h = true
-			
-			torch_handled.flip_h = true
-			torch_handled.position.x = - local_torch_position.x
-			
-			point_light_2d.rotation = 2 * PI
-			point_light_2d.position.x = - point_light_position.x
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
-	
+
+	# Rotate torch and point light to follow the mouse every frame.
+	var mouse_pos: Vector2 = get_global_mouse_position()
+	var to_mouse: Vector2 = mouse_pos - torch_handled.global_position
+	if to_mouse.length() > 0.001:
+		var angle := to_mouse.angle()
+		# If the torch sprite is flipped horizontally, mirror the rotation so
+		# the visual still points at the mouse.
+		if torch_handled.flip_h:
+			torch_handled.rotation = PI - angle
+		else:
+			torch_handled.rotation = angle
+		# Keep the light's rotation matching the computed angle.
 
 	move_and_slide()
