@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh3assnx6scsd"]
+
+[ext_resource type="Script" uid="uid://qrwanf2eu8rb" path="res://objects/computer_screen/ComputerScreen.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dlo8tmcxlmn4x" path="res://objects/computer_screen/computers_open.png" id="2_sprite"]
+
+[node name="ComputerScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+texture = ExtResource("2_sprite")
+vframes = 4
+
+[node name="InputPlayer" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 285.0
+offset_top = 280.0
+offset_right = 850.0
+offset_bottom = 325.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Displayed" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 291.0
+offset_top = 202.0
+offset_right = 856.0
+offset_bottom = 247.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.41981313, 0.41981313, 0.41981304, 1)
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
