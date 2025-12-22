@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d16u5se38v2g0"]
+
+[ext_resource type="Texture2D" uid="uid://g24oxcbf6b06" path="res://objects/desks/desk.png" id="1_20juv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k026"]
+size = Vector2(30, 15)
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="Desk" type="Sprite2D" parent="."]
+texture = ExtResource("1_20juv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_3k026")

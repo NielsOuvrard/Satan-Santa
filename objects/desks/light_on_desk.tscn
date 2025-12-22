@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://rq46g5p0k5nt"]
+
+[ext_resource type="Texture2D" uid="uid://ctxgn4a2vdyes" path="res://objects/desks/light_on_desk.png" id="1_ii348"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k026"]
+size = Vector2(30, 15)
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="LightOnDesk" type="Sprite2D" parent="."]
+texture = ExtResource("1_ii348")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_3k026")
