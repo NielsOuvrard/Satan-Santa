@@ -111,7 +111,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6xrn"]
-size = Vector2(32, 64)
+size = Vector2(44, 30)
 
 [node name="Door" type="Area2D"]
 script = ExtResource("1_v6xrn")
@@ -120,19 +120,19 @@ script = ExtResource("1_v6xrn")
 offset_left = -16.0
 offset_top = -64.0
 offset_right = 16.0
-color = Color(0, 0, 0, 1)
+color = Color(0.012645884, 0.012645883, 0.012645883, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_v1oua")
-animation = &"closing"
+animation = &"closed"
 autoplay = "closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_v6xrn")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -21.0
 offset_top = -64.0
 offset_right = 21.0

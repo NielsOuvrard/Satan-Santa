@@ -23,12 +23,13 @@ texture = ExtResource("1_sprite")
 position = Vector2(0.5, 39)
 rotation = -1.5708
 scale = Vector2(0.5, 0.5)
-energy = 2.0
+color = Color(0.853191, 0.7411307, 0.65547633, 1)
 texture = ExtResource("2_cone")
 texture_scale = 0.2
 
 [node name="GroundHalo" type="PointLight2D" parent="."]
 position = Vector2(5.684342e-14, 88)
 scale = Vector2(1.0216064, 0.83593756)
-energy = 2.0
+color = Color(0.853191, 0.7411307, 0.65547633, 1)
+energy = 0.75
 texture = SubResource("GradientTexture2D_halo")

@@ -27,6 +27,7 @@ material = ExtResource("5_g6k8r")
 position = Vector2(0, -4.9999995)
 rotation = -3.1415925
 scale = Vector2(0.15, 0.15)
+energy = 0.5
 blend_mode = 2
 texture = ExtResource("2_qjkh3")
 
