@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmi4cgdah6tri"]
+[gd_scene load_steps=6 format=3 uid="uid://bmi4cgdah6tri"]
 
+[ext_resource type="Script" uid="uid://tbev405iy338" path="res://objects/lights/hanging_lamp.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://btdhktvu28vbe" path="res://objects/lights/light.png" id="1_sprite"]
 [ext_resource type="Texture2D" uid="uid://bp43fmvbwfh7s" path="res://objects/lights/light_30.png" id="2_cone"]
-
-[ext_resource type="Script" path="res://objects/lights/hanging_lamp.gd" id="1_script"]
 
 [sub_resource type="Gradient" id="Gradient_halo"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -21,7 +20,7 @@ script = ExtResource("1_script")
 texture = ExtResource("1_sprite")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, 39)
+position = Vector2(0.5, 39)
 rotation = -1.5708
 scale = Vector2(0.5, 0.5)
 energy = 2.0
