@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7sj0wkvmq6u3"]
+[gd_scene load_steps=10 format=3 uid="uid://c7sj0wkvmq6u3"]
 
 [ext_resource type="Texture2D" uid="uid://dh07i1cs8duvv" path="res://player/Player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b07oy2dy7ivvm" path="res://player/player.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dsd0mxjwilwot" path="res://objects/common/light_halo.png" id="2_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://dsiudbqtgn1ho" path="res://player/TorchHandled.png" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://d2yrfc3dt4iox" path="res://objects/common/light_30.png" id="4_yw30f"]
+[ext_resource type="Material" uid="uid://d8itjhhwftav" path="res://tres/scene.tres" id="5_g6k8r"]
+[ext_resource type="Texture2D" uid="uid://vf5qn3xji6e8" path="res://objects/common/black.png" id="7_boad6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
 
@@ -12,6 +16,12 @@ height = 16.000036
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_script")
+
+; this light is only here to hide the other stuff behinde the lights, to be able to put "add" as blend mode
+[node name="PointLight2D" type="PointLight2D" parent="."]
+blend_mode = 2
+texture = ExtResource("7_boad6")
+texture_scale = 50.0
 
 [node name="TorchHandled" type="Sprite2D" parent="."]
 visible = false
@@ -33,3 +43,21 @@ disabled = true
 rotation = 1.5707964
 scale = Vector2(0.23997335, 0.9999978)
 shape = SubResource("CapsuleShape2D_g1dw6")
+
+[node name="Halo" type="PointLight2D" parent="."]
+material = ExtResource("5_g6k8r")
+position = Vector2(0, -4.9999995)
+rotation = -3.1415925
+scale = Vector2(0.15, 0.15)
+blend_mode = 2
+texture = ExtResource("2_qjkh3")
+
+[node name="Torch" type="PointLight2D" parent="."]
+material = ExtResource("5_g6k8r")
+position = Vector2(6, -11)
+rotation = -3.1415925
+scale = Vector2(0.2, 0.2)
+enabled = false
+color = Color(1, 0.922738, 0.6192957, 1)
+texture = ExtResource("4_yw30f")
+offset = Vector2(-540, 0)

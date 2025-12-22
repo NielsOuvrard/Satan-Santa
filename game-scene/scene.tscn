@@ -1,27 +1,47 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmcji5q2g1jm2"]
+[gd_scene load_steps=10 format=3 uid="uid://bmcji5q2g1jm2"]
 
 [ext_resource type="PackedScene" uid="uid://btxem26gkakob" path="res://Ruben/ruben.tscn" id="1_q2by6"]
+[ext_resource type="Material" uid="uid://d8itjhhwftav" path="res://tres/scene.tres" id="1_q887t"]
 [ext_resource type="PackedScene" uid="uid://c7sj0wkvmq6u3" path="res://player/player.tscn" id="2_mjqm4"]
 [ext_resource type="PackedScene" uid="uid://bh5vrj1aoenr6" path="res://objects/torch-item/torch_item.tscn" id="3_mjqm4"]
 [ext_resource type="PackedScene" uid="uid://v5761xp46n7v" path="res://objects/door/door.tscn" id="5_yi8ki"]
 [ext_resource type="PackedScene" uid="uid://b0bc6hryk0gul" path="res://objects/mcdo bag/mcdo_bag.tscn" id="6_h275r"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_enp5j"]
+frequency = 0.0021
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q887t"]
+noise = SubResource("FastNoiseLite_enp5j")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_enp5j"]
+light_mode = 2
+
 [node name="Scene" type="Node2D"]
 
+[node name="BackgroundNoise" type="Sprite2D" parent="."]
+modulate = Color(0.38359725, 0.38359725, 0.38359722, 1)
+material = ExtResource("1_q887t")
+texture = SubResource("NoiseTexture2D_q887t")
+
 [node name="Wall" type="ColorRect" parent="."]
+visible = false
 offset_left = -500.0
 offset_top = -121.0
 offset_right = 500.0
-offset_bottom = 29.0
-scale = Vector2(1, 0.76000124)
+offset_bottom = -115.0
+scale = Vector2(1, 25.480005)
+color = Color(0.22968918, 0.093126215, 0.0032243752, 1)
 
 [node name="Ground" type="ColorRect" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_enp5j")
 offset_left = -500.0
 offset_top = -12.0
 offset_right = -300.0
 offset_bottom = 38.0
 scale = Vector2(4.454, 1)
-color = Color(0.5, 0.5, 0.5, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Door" parent="." instance=ExtResource("5_yi8ki")]
 position = Vector2(266, 6)
@@ -40,3 +60,12 @@ zoom = Vector2(6, 6)
 
 [node name="Item" parent="." instance=ExtResource("6_h275r")]
 position = Vector2(50, -5)
+
+[node name="darkness" type="ColorRect" parent="."]
+visible = false
+offset_left = -615.0
+offset_top = -234.0
+offset_right = 385.0
+offset_bottom = -228.0
+scale = Vector2(3.44, 60.880005)
+color = Color(0, 0, 0, 0.8627451)
