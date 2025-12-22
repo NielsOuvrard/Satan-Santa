@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmcji5q2g1jm2"]
+[gd_scene load_steps=4 format=3 uid="uid://bmcji5q2g1jm2"]
 
 [ext_resource type="PackedScene" uid="uid://btxem26gkakob" path="res://Ruben/ruben.tscn" id="1_q2by6"]
 [ext_resource type="PackedScene" uid="uid://c7sj0wkvmq6u3" path="res://player/player.tscn" id="2_mjqm4"]
+[ext_resource type="PackedScene" uid="uid://spear123456" path="res://lights/spear.tscn" id="3_mjqm4"]
 
 [node name="Scene" type="Node2D"]
 
@@ -11,6 +12,7 @@ offset_top = -121.0
 offset_right = 500.0
 offset_bottom = 29.0
 scale = Vector2(1, 0.76000124)
+color = Color(0.1, 0.1, 0.1, 1)
 
 [node name="Ground" type="ColorRect" parent="."]
 offset_left = -500.0
@@ -28,3 +30,6 @@ position = Vector2(54, 0)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(27, -33)
 zoom = Vector2(6, 6)
+
+[node name="Spear" parent="." instance=ExtResource("3_mjqm4")]
+position = Vector2(141, 11)
