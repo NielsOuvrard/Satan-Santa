@@ -1,16 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://2vxreuiq7cse"]
+[gd_scene load_steps=4 format=3 uid="uid://2vxreuiq7cse"]
 
 [ext_resource type="Texture2D" uid="uid://bx4tu30ssgetc" path="res://objects/desks/computer_desk.png" id="1_7wxjn"]
+[ext_resource type="Texture2D" uid="uid://dsd0mxjwilwot" path="res://objects/common/light_halo.png" id="2_6kmst"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wxjn"]
-size = Vector2(2.8999996, 1.5000001)
+size = Vector2(3.1999998, 0.79999995)
 
-[node name="Node2D" type="StaticBody2D"]
+[node name="Desk" type="StaticBody2D"]
 
 [node name="ComputerDesk" type="Sprite2D" parent="."]
 texture = ExtResource("1_7wxjn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.9802322e-08, 9.499999)
+position = Vector2(1.7763568e-15, 12.000001)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_7wxjn")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(3, -5.0000005)
+scale = Vector2(0.043002445, -0.027)
+energy = 0.2
+texture = ExtResource("2_6kmst")
+texture_scale = 0.8

@@ -1,6 +1,5 @@
 [gd_scene load_steps=10 format=3 uid="uid://c7sj0wkvmq6u3"]
 
-[ext_resource type="Texture2D" uid="uid://dh07i1cs8duvv" path="res://player/Player.png" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b07oy2dy7ivvm" path="res://player/player.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://dsd0mxjwilwot" path="res://objects/common/light_halo.png" id="2_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://dsiudbqtgn1ho" path="res://player/TorchHandled.png" id="3_g1dw6"]
@@ -13,6 +12,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1dw6"]
 radius = 7.0000157
 height = 16.000036
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g6k8r"]
+load_path = "res://.godot/imported/Player.png-e2f068cfb4b8070c2a78660082e51208.ctex"
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_script")
@@ -45,10 +47,6 @@ scale = Vector2(0.2, 0.2)
 color = Color(1, 0.922738, 0.6192957, 1)
 texture = ExtResource("4_yw30f")
 
-[node name="Player" type="Sprite2D" parent="."]
-position = Vector2(0, -16)
-texture = ExtResource("1_oul6g")
-
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
 light_mask = 2
 visibility_layer = 2
@@ -60,3 +58,8 @@ disabled = true
 rotation = 1.5707964
 scale = Vector2(0.23997335, 0.9999978)
 shape = SubResource("CapsuleShape2D_g1dw6")
+
+[node name="Player" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -16)
+texture = SubResource("CompressedTexture2D_g6k8r")

@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5v8jm2qw3xyk"]
+
+[ext_resource type="Script" uid="uid://hpoew208c7uk" path="res://hud/hud.gd" id="1_x5k2m"]
+[ext_resource type="Texture2D" uid="uid://cv4epuyrxx6aq" path="res://objects/torch-item/TorchItem.png" id="2_2gk58"]
+[ext_resource type="Texture2D" uid="uid://do6lrt6vrq2dh" path="res://objects/key/keyes.png" id="3_318vg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(1, 1, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_x5k2m")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 160
+theme_override_constants/margin_top = 160
+theme_override_constants/margin_right = 160
+theme_override_constants/margin_bottom = 160
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftPanel" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TorchDisplay" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftPanel"]
+visible = false
+layout_mode = 2
+
+[node name="TorchItem" type="Sprite2D" parent="MarginContainer/HBoxContainer/LeftPanel/TorchDisplay"]
+scale = Vector2(8, 8)
+texture = ExtResource("2_2gk58")
+offset = Vector2(-9, 5)
+
+[node name="TorchProgress" type="ProgressBar" parent="MarginContainer/HBoxContainer/LeftPanel/TorchDisplay"]
+custom_minimum_size = Vector2(1000, 80)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_1")
+value = 100.0
+show_percentage = false
+
+[node name="RightPanel" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="KeyDisplay" type="HBoxContainer" parent="MarginContainer/HBoxContainer/RightPanel"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 2
+
+[node name="Keyes" type="Sprite2D" parent="MarginContainer/HBoxContainer/RightPanel/KeyDisplay"]
+rotation = 1.5707964
+scale = Vector2(15, 15)
+texture = ExtResource("3_318vg")
+vframes = 4
