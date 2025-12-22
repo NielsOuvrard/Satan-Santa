@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmi4cgdah6tri"]
+
+[ext_resource type="Texture2D" uid="uid://btdhktvu28vbe" path="res://objects/lights/light.png" id="1_sprite"]
+[ext_resource type="Texture2D" uid="uid://bp43fmvbwfh7s" path="res://objects/lights/light_30.png" id="2_cone"]
+
+[ext_resource type="Script" path="res://objects/lights/hanging_lamp.gd" id="1_script"]
+
+[sub_resource type="Gradient" id="Gradient_halo"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_halo"]
+gradient = SubResource("Gradient_halo")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="HangingLamp" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sprite")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 39)
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+energy = 2.0
+texture = ExtResource("2_cone")
+texture_scale = 0.2
+
+[node name="GroundHalo" type="PointLight2D" parent="."]
+position = Vector2(5.684342e-14, 88)
+scale = Vector2(1.0216064, 0.83593756)
+energy = 2.0
+texture = SubResource("GradientTexture2D_halo")

@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://c4mj45ycl5r3p" path="res://objects/tiles/wall.png" id="4_h0whk"]
 [ext_resource type="Texture2D" uid="uid://jqlygjaeyawr" path="res://objects/tiles/wall_bottom.png" id="5_8ney4"]
 [ext_resource type="PackedScene" uid="uid://bh5vrj1aoenr6" path="res://objects/torch-item/torch_item.tscn" id="3_mjqm4"]
-[ext_resource type="Script" uid="uid://dj378q0v8cjd2" path="res://Ruben/ruben.gd" id="4_q887t"]
 [ext_resource type="PackedScene" uid="uid://v5761xp46n7v" path="res://objects/door/door.tscn" id="5_yi8ki"]
 [ext_resource type="Texture2D" uid="uid://biscfa85i2jd5" path="res://objects/tiles/wall_top.png" id="6_1fj1r"]
 [ext_resource type="PackedScene" uid="uid://cpem1fhw6wxum" path="res://objects/mcdo bag/mcdo_bag.tscn" id="6_h275r"]
@@ -170,7 +169,6 @@ position = Vector2(30, -26)
 
 [node name="Ruben" parent="." instance=ExtResource("1_q2by6")]
 position = Vector2(-48, 0)
-script = ExtResource("4_q887t")
 
 [node name="Player" parent="." instance=ExtResource("2_mjqm4")]
 
@@ -192,3 +190,6 @@ color = Color(0, 0, 0, 0.8627451)
 
 [node name="TorchItem" parent="." instance=ExtResource("6_q887t")]
 position = Vector2(3, 55)
+
+[node name="HangingLamp2" parent="." instance=ExtResource("7_yi8ki")]
+position = Vector2(-51, -90)
