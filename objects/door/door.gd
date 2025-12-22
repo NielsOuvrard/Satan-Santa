@@ -17,6 +17,7 @@ func _ready() -> void:
 func interact_door(opening: bool) -> void:
 	if locked:
 		return
+	SignalHandler.door_interacted.emit()
 	#if opening:
 		#animated_sprite_2d.play("opening")
 	#else:
@@ -28,7 +29,6 @@ func unlock():
 	reader.frame = 0
 
 func _on_body_entered(body: Node2D) -> void:
-	
 	if body.is_in_group("player"):
 		interact_door(true)
 
