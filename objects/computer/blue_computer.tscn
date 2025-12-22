@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dek55chnfckew"]
+
+[ext_resource type="Texture2D" uid="uid://cdga5lf2cocns" path="res://objects/computer/blue_computer.png" id="1_fm8gx"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BlueComputer" type="Sprite2D" parent="."]
+texture = ExtResource("1_fm8gx")
