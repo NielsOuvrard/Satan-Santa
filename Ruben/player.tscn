@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://btxem26gkakob"]
+
+[ext_resource type="Texture2D" uid="uid://4eka13n5i228" path="res://assets/Ruben.png" id="1_pryvl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_pryvl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_rkbax")
