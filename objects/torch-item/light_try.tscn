@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dguus5ehetoau"]
+
+[ext_resource type="Texture2D" uid="uid://dsd0mxjwilwot" path="res://objects/common/light_halo.png" id="1_mnpf5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nkkcr"]
+light_mode = 2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xadop"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gvrth"]
+noise = SubResource("FastNoiseLite_xadop")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.24115604, 0.24115604, 0.24115604, 1)
+material = SubResource("CanvasItemMaterial_nkkcr")
+texture = SubResource("NoiseTexture2D_gvrth")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+blend_mode = 2
+texture = ExtResource("1_mnpf5")
+texture_scale = 0.2

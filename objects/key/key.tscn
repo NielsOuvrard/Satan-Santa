@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2mmiyealj33q"]
+
+[ext_resource type="PackedScene" uid="uid://8lfmd0hpxc1t" path="res://objects/common/collectable_item.tscn" id="1_f7yy5"]
+[ext_resource type="Texture2D" uid="uid://do6lrt6vrq2dh" path="res://objects/key/keyes.png" id="2_cnk4p"]
+[ext_resource type="Script" uid="uid://dqngy0q25dour" path="res://objects/key/key.gd" id="2_wulxn"]
+
+[node name="Key" instance=ExtResource("1_f7yy5")]
+script = ExtResource("2_wulxn")
+
+[node name="ItemSprite" parent="." index="0"]
+position = Vector2(0, -13)
+texture = ExtResource("2_cnk4p")
+vframes = 4

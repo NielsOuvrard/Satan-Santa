@@ -1,18 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0bc6hryk0gul"]
+[gd_scene load_steps=3 format=3 uid="uid://cpem1fhw6wxum"]
 
-[ext_resource type="Script" uid="uid://bj30x8syphbsv" path="res://objects/mcdo bag/mcdo_bag.gd" id="1_kg5e7"]
-[ext_resource type="Texture2D" uid="uid://caosk1tee6aaw" path="res://objects/mcdo bag/McDo_bag.png" id="2_kg5e7"]
-[ext_resource type="Texture2D" uid="uid://cfbsbntfyd7do" path="res://objects/common/shadow_small.png" id="3_xus2q"]
+[ext_resource type="PackedScene" uid="uid://8lfmd0hpxc1t" path="res://objects/common/collectable_item.tscn" id="1_rahdq"]
+[ext_resource type="Texture2D" uid="uid://caosk1tee6aaw" path="res://objects/mcdo bag/McDo_bag.png" id="2_s37y1"]
 
-[node name="Item" type="Node2D"]
-script = ExtResource("1_kg5e7")
+[node name="Mcdo Bag" instance=ExtResource("1_rahdq")]
 
-[node name="Bag" type="Sprite2D" parent="."]
-position = Vector2(0, -17)
-texture = ExtResource("2_kg5e7")
+[node name="ItemSprite" parent="." index="0"]
+texture = ExtResource("2_s37y1")
 vframes = 2
 frame = 1
-
-[node name="ShadowSmall" type="Sprite2D" parent="."]
-position = Vector2(0, -1)
-texture = ExtResource("3_xus2q")
