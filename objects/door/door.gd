@@ -5,13 +5,11 @@ var opened := false
 @export var locked := true
 @export var frame_id := 0
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hublo: Sprite2D = $Hublo
 @onready var reader: Sprite2D = $Reader
-@onready var label: Label = $Label
 
 func _ready() -> void:
-	hublo.frame = frame_id + 1
+	hublo.frame = frame_id
 	
 	if not locked:
 		reader.frame
@@ -37,7 +35,6 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		# label.visible = false
 		interact_door(false)
 
 

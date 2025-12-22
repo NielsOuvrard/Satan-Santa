@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5v8jm2qw3xyk"]
+[gd_scene load_steps=6 format=3 uid="uid://c5v8jm2qw3xyk"]
 
 [ext_resource type="Script" uid="uid://hpoew208c7uk" path="res://hud/hud.gd" id="1_x5k2m"]
 [ext_resource type="Texture2D" uid="uid://cv4epuyrxx6aq" path="res://objects/torch-item/TorchItem.png" id="2_2gk58"]
 [ext_resource type="Texture2D" uid="uid://do6lrt6vrq2dh" path="res://objects/key/keyes.png" id="3_318vg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_318vg"]
+bg_color = Color(0.2766009, 0.26002312, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
 bg_color = Color(1, 1, 0, 1)
@@ -41,6 +44,7 @@ offset = Vector2(-9, 5)
 [node name="TorchProgress" type="ProgressBar" parent="MarginContainer/HBoxContainer/LeftPanel/TorchDisplay"]
 custom_minimum_size = Vector2(1000, 80)
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_318vg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1")
 value = 100.0
 show_percentage = false

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://v5761xp46n7v"]
+[gd_scene load_steps=6 format=3 uid="uid://v5761xp46n7v"]
 
-[ext_resource type="Texture2D" uid="uid://ybclduu5674r" path="res://objects/door/Door.png" id="1_ba8gm"]
 [ext_resource type="Script" uid="uid://b3gwgmif44lo5" path="res://objects/door/door.gd" id="1_v6xrn"]
+[ext_resource type="Texture2D" uid="uid://b3njamtan6h5k" path="res://objects/door/Hublots.png" id="2_0i0ho"]
+[ext_resource type="Texture2D" uid="uid://dk5b44hejkn6h" path="res://objects/door/Doors.png" id="2_y765d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6xrn"]
 size = Vector2(44, 30)
@@ -29,14 +30,13 @@ frame = 1
 
 [node name="Door" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
-texture = ExtResource("1_ba8gm")
-hframes = 5
+texture = ExtResource("2_y765d")
+hframes = 2
 
 [node name="Hublo" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
-texture = ExtResource("1_ba8gm")
-hframes = 5
-frame = 1
+texture = ExtResource("2_0i0ho")
+hframes = 4
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
