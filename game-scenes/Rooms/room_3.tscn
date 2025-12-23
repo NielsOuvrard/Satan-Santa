@@ -180,6 +180,7 @@ position = Vector2(48, 61)
 
 [node name="Desk" parent="." instance=ExtResource("20_0q8cr")]
 position = Vector2(70, 160)
+frame_id = 1
 
 [node name="Node2D16" parent="." instance=ExtResource("17_tg6vd")]
 position = Vector2(80, 173)
@@ -194,7 +195,7 @@ position = Vector2(208, 78)
 position = Vector2(48, 118)
 
 [node name="HangingLamp" parent="." instance=ExtResource("23_m5b04")]
-position = Vector2(73, 89)
+position = Vector2(71, 73)
 
 [node name="HangingLamp2" parent="." instance=ExtResource("23_m5b04")]
 position = Vector2(135, -96)

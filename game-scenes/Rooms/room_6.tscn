@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cgxidvjf8t5cu"]
+[gd_scene load_steps=38 format=4 uid="uid://cgxidvjf8t5cu"]
 
 [ext_resource type="Texture2D" uid="uid://q2iq28fnyrlo" path="res://objects/tiles/carpet_epitech.png" id="1_27k0f"]
 [ext_resource type="Texture2D" uid="uid://b7t1daem261f6" path="res://objects/tiles/void.png" id="2_k22kx"]
@@ -23,8 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://yquuukdj1afg" path="res://objects/storage/storage_left.tscn" id="21_p5bfw"]
 [ext_resource type="PackedScene" uid="uid://b0svbsk6gfsdl" path="res://objects/storage/storage_tall.tscn" id="22_1x0f1"]
 [ext_resource type="PackedScene" uid="uid://bnbn3xbg30ycr" path="res://objects/desks/right_mini_desk.tscn" id="23_nj65j"]
-[ext_resource type="PackedScene" path="res://objects/desks/desk.tscn" id="24_rnsnx"]
+[ext_resource type="PackedScene" uid="uid://d16u5se38v2g0" path="res://objects/desks/desk.tscn" id="24_rnsnx"]
 [ext_resource type="PackedScene" uid="uid://bmi4cgdah6tri" path="res://objects/lights/hanging_lamp.tscn" id="25_qo1kd"]
+[ext_resource type="PackedScene" uid="uid://2vxreuiq7cse" path="res://objects/desks/computer_desk.tscn" id="26_i0ycx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xw8c"]
 texture = ExtResource("1_27k0f")
@@ -413,3 +414,7 @@ position = Vector2(116, -120)
 
 [node name="HangingLamp5" parent="." instance=ExtResource("25_qo1kd")]
 position = Vector2(121, 109)
+
+[node name="Desk" parent="." instance=ExtResource("26_i0ycx")]
+position = Vector2(120, 202)
+frame_id = 2

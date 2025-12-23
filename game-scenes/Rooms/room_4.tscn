@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://bf0j2hu68v5ra"]
+[gd_scene load_steps=33 format=4 uid="uid://bf0j2hu68v5ra"]
 
 [ext_resource type="Texture2D" uid="uid://q2iq28fnyrlo" path="res://objects/tiles/carpet_epitech.png" id="1_6ilpu"]
 [ext_resource type="Texture2D" uid="uid://b7t1daem261f6" path="res://objects/tiles/void.png" id="2_dtwl8"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://b3bxbh52rk7y0" path="res://objects/lokcers/lockers.tscn" id="14_rhohu"]
 [ext_resource type="PackedScene" uid="uid://bjhj6kui08xsk" path="res://objects/chair/chair_back.tscn" id="15_yecmm"]
 [ext_resource type="PackedScene" uid="uid://cbwspuru4egdx" path="res://objects/whiteboard/standing_whiteboard.tscn" id="16_3lak8"]
-[ext_resource type="PackedScene" uid="uid://2vxreuiq7cse" path="res://objects/desks/computer_desk.tscn" id="17_jbm7g"]
 [ext_resource type="PackedScene" uid="uid://bnbn3xbg30ycr" path="res://objects/desks/right_mini_desk.tscn" id="18_hxgrm"]
 [ext_resource type="PackedScene" uid="uid://lqb8ml3h6h6p" path="res://objects/desks/left_mini_desk.tscn" id="19_r3jw3"]
 [ext_resource type="PackedScene" uid="uid://yquuukdj1afg" path="res://objects/storage/storage_left.tscn" id="20_4n5lq"]
@@ -156,11 +155,8 @@ position = Vector2(26, 111)
 [node name="Node2D15" parent="." instance=ExtResource("16_3lak8")]
 position = Vector2(-78, -10)
 
-[node name="Desk" parent="." instance=ExtResource("17_jbm7g")]
-position = Vector2(0, 142)
-
 [node name="Node2D16" parent="." instance=ExtResource("15_yecmm")]
-position = Vector2(7, 151)
+position = Vector2(12, 69)
 
 [node name="Node2D17" parent="." instance=ExtResource("18_hxgrm")]
 position = Vector2(51, 8)
@@ -190,7 +186,7 @@ position = Vector2(15, 16)
 position = Vector2(-48, 33)
 
 [node name="HangingLamp" parent="." instance=ExtResource("22_dtwl8")]
-position = Vector2(-42, 70)
+position = Vector2(-17, 74)
 
 [node name="HangingLamp2" parent="." instance=ExtResource("22_dtwl8")]
 position = Vector2(8, -105)
