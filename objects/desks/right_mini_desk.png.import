@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhi73g21fjhpf"
-path="res://.godot/imported/Ruben.png-9085bf6e0080933b8acec8bdad8ae0bd.ctex"
+uid="uid://hqo6gjertlpo"
+path="res://.godot/imported/right_mini_desk.png-965464fc2d2a8ea2e9c69046d643c588.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ruben/Ruben.png"
-dest_files=["res://.godot/imported/Ruben.png-9085bf6e0080933b8acec8bdad8ae0bd.ctex"]
+source_file="res://objects/desks/right_mini_desk.png"
+dest_files=["res://.godot/imported/right_mini_desk.png-965464fc2d2a8ea2e9c69046d643c588.ctex"]
 
 [params]
 
