@@ -34,10 +34,10 @@ blend_mode = 2
 texture = ExtResource("2_qjkh3")
 
 [node name="TorchHandled" type="Sprite2D" parent="."]
-
 visible = false
-	position = Vector2(11, -10)
-	texture = ExtResource("3_g1dw6")
+position = Vector2(0, -11)
+texture = ExtResource("3_g1dw6")
+offset = Vector2(12.24, 0)
 
 [node name="Torch" type="PointLight2D" parent="TorchHandled"]
 material = ExtResource("5_g6k8r")
