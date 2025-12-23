@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://lvhhvt6xhd0h"]
+[gd_scene load_steps=43 format=4 uid="uid://lvhhvt6xhd0h"]
 
 [ext_resource type="Texture2D" uid="uid://q2iq28fnyrlo" path="res://objects/tiles/carpet_epitech.png" id="1_3xaek"]
 [ext_resource type="Texture2D" uid="uid://b7t1daem261f6" path="res://objects/tiles/void.png" id="2_s1f3p"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dg2k8vg5lwdxt" path="res://objects/common/exit.png" id="17_avlm1"]
 [ext_resource type="PackedScene" uid="uid://bj6a2bmw6jwyr" path="res://objects/chair/chair_side.tscn" id="17_wwv6n"]
 [ext_resource type="PackedScene" uid="uid://bjhj6kui08xsk" path="res://objects/chair/chair_back.tscn" id="18_yonox"]
-[ext_resource type="PackedScene" uid="uid://bnbn3xbg30ycr" path="res://objects/desks/right_mini_desk.tscn" id="19_yonox"]
+[ext_resource type="PackedScene" path="res://objects/desks/right_mini_desk.tscn" id="19_yonox"]
 [ext_resource type="PackedScene" uid="uid://bmi4cgdah6tri" path="res://objects/lights/hanging_lamp.tscn" id="20_mfeit"]
 [ext_resource type="PackedScene" uid="uid://cwdhkt4tie6o3" path="res://game-scenes/Rooms/room_5.tscn" id="21_mfeit"]
 [ext_resource type="PackedScene" uid="uid://cgxidvjf8t5cu" path="res://game-scenes/Rooms/room_6.tscn" id="22_b2lda"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://ufplhbtcmne8" path="res://objects/torch-item/torch-item.tscn" id="25_4v2lo"]
 [ext_resource type="PackedScene" uid="uid://c5v8jm2qw3xyk" path="res://hud/hud.tscn" id="25_22wjy"]
 [ext_resource type="PackedScene" uid="uid://c2mmiyealj33q" path="res://objects/key/key.tscn" id="25_iyt6w"]
+[ext_resource type="PackedScene" uid="uid://btxem26gkakob" path="res://Ruben/ruben.tscn" id="29_avlm1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tliyg"]
 texture = ExtResource("1_3xaek")
@@ -135,6 +136,12 @@ sources/7 = SubResource("TileSetAtlasSource_r5kpv")
 sources/8 = SubResource("TileSetAtlasSource_qpkdp")
 sources/10 = SubResource("TileSetAtlasSource_1cvko")
 sources/9 = SubResource("TileSetAtlasSource_2l4y1")
+
+[sub_resource type="Curve2D" id="Curve2D_avlm1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -950, -14, 0, 0, 0, 0, -979, 17, 0, 0, 0, 0, -1047, 23, 0, 0, 0, 0, -1107, 28, 0, 0, 0, 0, -1167, 17, 0, 0, 0, 0, -1221, -9, 0, 0, 0, 0, -1278, -54, 0, 0, 0, 0, -1310, -86, 0, 0, 0, 0, -1367, -106, 0, 0, 0, 0, -1370, -174, 0, 0, 0, 0, -1435, -268, 0, 0, 0, 0, -1555, -217, 0, 0, 0, 0, -1655, -186, 0, 0, 0, 0, -1692, -203, 0, 0, 0, 0, -1692, -263, 0, 0, 0, 0, -1718, -357, 0, 0, 0, 0, -1721, -420, 0, 0, 0, 0, -1741, -485, 0, 0, 0, 0, -1732, -534, 0, 0, 0, 0, -1818, -579, 0, 0, 0, 0, -1795, -625, 0, 0, 0, 0, -1735, -662, 0, 0, 0, 0, -1635, -662, 0, 0, 0, 0, -1612, -642, 0, 0, 0, 0, -1589, -605, 0, 0, 0, 0, -1626, -559, 0, 0, 0, 0, -1689, -525, 0, 0, 0, 0, -1721, -491, 0, 0, 0, 0, -1721, -457, 0, 0, 0, 0, -1706, -411, 0, 0, 0, 0, -1681, -343, 0, 0, 0, 0, -1664, -308, 0, 0, 0, 0, -1606, -300, 0, 0, 0, 0, -1541, -311, 0, 0, 0, 0, -1384, -357, 0, 0, 0, 0, -1344, -365, 0, 0, 0, 0, -1287, -411, 0, 0, 0, 0, -1198, -442, 0, 0, 0, 0, -1178, -514, 0, 0, 0, 0, -1184, -616, 0, 0, 0, 0, -1119, -685, 0, 0, 0, 0, -1053, -685, 0, 0, 0, 0, -1016, -676, 0, 0, 0, 0, -984, -662, 0, 0, 0, 0, -939, -645, 0, 0, 0, 0, -882, -639, 0, 0, 0, 0, -848, -631, 0, 0, 0, 0, -765, -602, 0, 0, 0, 0, -751, -602, 0, 0, 0, 0, -719, -562, 0, 0, 0, 0, -722, -479, 0, 0, 0, 0, -696, -354, 0, 0, 0, 0, -616, -323, 0, 0, 0, 0, -571, -317, 0, 0, 0, 0, -465, -311, 0, 0, 0, 0, -445, -226, 0, 0, 0, 0, -422, -140, 0, 0, 0, 0, -411, -80, 0, 0, 0, 0, -442, -40, 0, 0, 0, 0, -474, -29, 0, 0, 0, 0, -517, -12, 0, 0, 0, 0, -582, -23, 0, 0, 0, 0, -651, -17, 0, 0, 0, 0, -711, -6, 0, 0, 0, 0, -716, 63, 0, 0, 0, 0, -719, 151, 0, 0, 0, 0, -702, 208, 0, 0, 0, 0, -659, 285, 0, 0, 0, 0, -685, 336, 0, 0, 0, 0, -756, 322, 0, 0, 0, 0, -790, 239, 0, 0, 0, 0, -773, 157, 0, 0, 0, 0, -745, 80, 0, 0, 0, 0, -759, -34, 0, 0, 0, 0, -845, -34, 0, 0, 0, 0, -945, -60, 0, 0, 0, 0, -1119, -94, 0, 0, 0, 0, -1244, -120, 0, 0, 0, 0, -1290, -120, 0, 0, 0, 0, -1330, -46, 0, 0, 0, 0, -1395, -34, 0, 0, 0, 0, -1401, -126, 0, 0, 0, 0, -1392, -251, 0, 0, 0, 0, -1512, -285, 0, 0, 0, 0, -1632, -243, 0, 0, 0, 0, -1726, -169, 0, 0, 0, 0, -1783, -77, 0, 0, 0, 0, -1798, 3, 0, 0, 0, 0, -1815, 154, 0, 0, 0, 0, -1783, 254, 0, 0, 0, 0, -1743, 328, 0, 0, 0, 0, -1672, 339, 0, 0, 0, 0, -1558, 371, 0, 0, 0, 0, -1430, 342, 0, 0, 0, 0, -1353, 328, 0, 0, 0, 0, -1304, 317, 0, 0, 0, 0, -1210, 291, 0, 0, 0, 0, -1090, 285, 0, 0, 0, 0, -1013, 311, 0, 0, 0, 0, -996, 348, 0, 0, 0, 0, -996, 396, 0, 0, 0, 0, -1024, 453, 0, 0, 0, 0, -1079, 511, 0, 0, 0, 0, -1133, 565, 0, 0, 0, 0, -1193, 576, 0, 0, 0, 0, -1293, 573, 0, 0, 0, 0, -1321, 522, 0, 0, 0, 0, -1333, 439, 0, 0, 0, 0, -1378, 422, 0, 0, 0, 0, -1444, 428, 0, 0, 0, 0, -1535, 428, 0, 0, 0, 0, -1629, 405, 0, 0, 0, 0, -1703, 396, 0, 0, 0, 0, -1769, 431, 0, 0, 0, 0, -1826, 445, 0, 0, 0, 0, -1897, 468, 0, 0, 0, 0, -1926, 488, 0, 0, 0, 0, -1900, 624, 0, 0, 0, 0, -1892, 684, 0, 0, 0, 0, -1886, 735, 0, 0, 0, 0, -1889, 810, 0, 0, 0, 0, -1920, 932, 0, 0, 0, 0, -1937, 1029, 0, 0, 0, 0, -1903, 1066, 0, 0, 0, 0, -1889, 1058, 0, 0, 0, 0, -1866, 995, 0, 0, 0, 0, -1855, 912, 0, 0, 0, 0, -1866, 852, 0, 0, 0, 0, -1875, 758, 0, 0, 0, 0, -1883, 658, 0, 0, 0, 0, -1875, 564, 0, 0, 0, 0, -1852, 422, 0, 0, 0, 0, -1875, 393, 0, 0, 0, 0, -1818, 330, 0, 0, 0, 0, -1766, 207, 0, 0, 0, 0, -1772, 119, 0, 0, 0, 0, -1803, 19, 0, 0, 0, 0, -1792, -104, 0, 0, 0, 0, -1815, -226, 0, 0, 0, 0, -1741, -260, 0, 0, 0, 0, -1538, -246, 0, 0, 0, 0, -1438, -306, 0, 0, 0, 0, -1387, -283, 0, 0, 0, 0, -1407, -209, 0, 0, 0, 0, -1415, -132, 0, 0, 0, 0, -1407, -69, 0, 0, 0, 0, -1353, -66, 0, 0, 0, 0, -1144, -57, 0, 0, 0, 0, -1056, -40, 0, 0, 0, 0, -993, -40, 0, 0, 0, 0, -950, -14)
+}
+point_count = 151
 
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
@@ -285,3 +292,16 @@ position = Vector2(-355, 118)
 
 [node name="Node2D13" parent="." instance=ExtResource("23_h44ra")]
 position = Vector2(-1016, -675)
+
+[node name="Ruben" parent="." node_paths=PackedStringArray("path_follow_node") instance=ExtResource("29_avlm1")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-518, -17)
+path_follow_node = NodePath("../Path2D/PathFollow2D")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_avlm1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-950, -14)
+rotation = 2.3228736
