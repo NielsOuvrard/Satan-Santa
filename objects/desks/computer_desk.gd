@@ -73,7 +73,7 @@ func _process(delta: float) -> void:
 		fb_keys.position.y = fb_initial_position.y + sin(fb_time_passed * fb_float_speed) * fb_float_amplitude
 
 	# Only allow interaction if computer is unlocked and player is in area
-	if player_in_area and computer_available and not computer_unlocked and Input.is_action_just_pressed("interaction"):
+	if player_in_area and computer_available and not computer_unlocked and Input.is_action_just_pressed("interaction") and computer_screen_instance == null:
 		print("Computer Desk used")
 		# Disable player movement instead of pausing the game
 		SignalHandler.player_locked.emit() # This sets can_move = false in player.gd
@@ -119,6 +119,7 @@ func _on_computer_screen_closed(success: bool) -> void:
 	# Re-enable player movement when computer screen is closed
 	if computer_screen_instance:
 		computer_screen_instance.queue_free()
+		computer_screen_instance = null
 	SignalHandler.player_unlocked.emit() # This sets can_move = true in player.gd
 	
 	if success:
