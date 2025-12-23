@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5v8jm2qw3xyk"]
+[gd_scene load_steps=5 format=3 uid="uid://c5v8jm2qw3xyk"]
 
 [ext_resource type="Script" uid="uid://hpoew208c7uk" path="res://hud/hud.gd" id="1_x5k2m"]
 [ext_resource type="Texture2D" uid="uid://cv4epuyrxx6aq" path="res://objects/torch-item/TorchItem.png" id="2_2gk58"]
-[ext_resource type="Texture2D" uid="uid://do6lrt6vrq2dh" path="res://objects/key/keyes.png" id="3_318vg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_318vg"]
 bg_color = Color(0.2766009, 0.26002312, 0, 1)
@@ -58,9 +57,3 @@ alignment = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 2
-
-[node name="Keyes" type="Sprite2D" parent="MarginContainer/HBoxContainer/RightPanel/KeyDisplay"]
-rotation = 1.5707964
-scale = Vector2(15, 15)
-texture = ExtResource("3_318vg")
-vframes = 4
