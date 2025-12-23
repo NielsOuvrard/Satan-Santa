@@ -18,12 +18,12 @@ enum State {
 var current_state = State.PATROL
 
 @export var player_path: NodePath
-@export var patrol_speed = 45.0
-@export var chase_speed = 65.0
+@export var patrol_speed = 35.0
+@export var chase_speed = 50.0
 @export var path_follow_node: PathFollow2D
 
 var speed_increase_timer: float = 0.0
-const SPEED_INCREASE_INTERVAL: float = 4.0
+const SPEED_INCREASE_INTERVAL: float = 10.0
 const SPEED_INCREMENT: float = 1.0
 
 @export var detection_range: float = 200.0:
