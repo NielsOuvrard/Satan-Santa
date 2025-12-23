@@ -11,6 +11,7 @@ var current_torch_energy: float = 100.0
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	update_torch_display()
 	update_key_display()
 	

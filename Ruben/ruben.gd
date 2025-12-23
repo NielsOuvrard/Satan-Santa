@@ -1,15 +1,13 @@
 extends CharacterBody2D
 
 const SPEED = 15.0
+const FOOTSTEP_INTERVAL: float = 0.7
 
-@export var player_path: NodePath
 var player: Node2D = null
-
 var footstep_sound = preload("res://sounds/ruben_footstep.wav")
 var footstep_player: AudioStreamPlayer2D
 var footstep_timer: float = 0.0
-const FOOTSTEP_INTERVAL: float = 0.7
-
+var is_active: bool = true
 var initial_position: Vector2
 
 enum State {
@@ -17,9 +15,9 @@ enum State {
 	CHASE,
 	RETURN
 }
-
 var current_state = State.PATROL
 
+@export var player_path: NodePath
 @export var patrol_speed = 30.0
 @export var chase_speed = 50.0
 @export var path_follow_node: PathFollow2D
@@ -34,6 +32,7 @@ var current_state = State.PATROL
 func _ready() -> void:
 	initial_position = position
 	SignalHandler.screamer_finished.connect(_on_screamer_finished)
+	SignalHandler.player_caught.connect(_on_player_caught)
 	
 	if player_path:
 		player = get_node(player_path)
@@ -51,15 +50,17 @@ func process_patrol(delta: float) -> void:
 	if path_follow_node:
 		path_follow_node.progress += patrol_speed * delta
 		global_position = path_follow_node.global_position
-		_update_footsteps(delta, true)
+		update_footsteps(delta, true)
 
 func process_chase(delta: float) -> void:
 	if player:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * chase_speed
 		move_and_slide()
-		_check_player_collision()
-		_update_footsteps(delta, velocity.length() > 1.0)
+		check_player_collision()
+		update_footsteps(delta, velocity.length() > 1.0)
+
+
 
 func process_return(delta: float) -> void:
 	if path_follow_node:
@@ -71,9 +72,12 @@ func process_return(delta: float) -> void:
 		else:
 			velocity = direction * patrol_speed
 			move_and_slide()
-			_update_footsteps(delta, velocity.length() > 1.0)
+			update_footsteps(delta, velocity.length() > 1.0)
 
 func _physics_process(delta: float) -> void:
+	if not is_active:
+		return
+
 	if not player:
 		player = get_parent().get_node_or_null("Player")
 		return
@@ -86,14 +90,14 @@ func _physics_process(delta: float) -> void:
 		State.RETURN:
 			process_return(delta)
 
-func _check_player_collision() -> void:
+func check_player_collision() -> void:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider.is_in_group("player"):
 			SignalHandler.player_caught.emit()
 
-func _update_footsteps(delta: float, is_moving: bool) -> void:
+func update_footsteps(delta: float, is_moving: bool) -> void:
 	if is_moving:
 		footstep_timer -= delta
 		if footstep_timer <= 0.0:
@@ -111,7 +115,6 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		current_state = State.RETURN
 
-
 func _on_screamer_finished() -> void:
 	visible = false
 	set_physics_process(false)
@@ -122,7 +125,6 @@ func _on_screamer_finished() -> void:
 	var timer = get_tree().create_timer(30.0)
 	timer.timeout.connect(_respawn)
 
-
 func _respawn() -> void:
 	visible = true
 	set_physics_process(true)
@@ -130,3 +132,9 @@ func _respawn() -> void:
 	$CollisionGround.set_deferred("disabled", false)
 	
 	position = initial_position
+
+func _on_player_caught() -> void:
+	# When player is caught (screamer), Ruben should stop moving/interacting
+	is_active = false
+	# Pause the game for the screamer effect
+	get_tree().paused = true
