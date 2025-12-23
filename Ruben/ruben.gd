@@ -18,9 +18,13 @@ enum State {
 var current_state = State.PATROL
 
 @export var player_path: NodePath
-@export var patrol_speed = 30.0
-@export var chase_speed = 50.0
+@export var patrol_speed = 45.0
+@export var chase_speed = 65.0
 @export var path_follow_node: PathFollow2D
+
+var speed_increase_timer: float = 0.0
+const SPEED_INCREASE_INTERVAL: float = 4.0
+const SPEED_INCREMENT: float = 1.0
 
 @export var detection_range: float = 200.0:
 	set(value):
@@ -45,7 +49,7 @@ func _ready() -> void:
 	footstep_player.max_distance = 500.0
 	footstep_player.attenuation = 3.0
 	add_child(footstep_player)
-
+	
 func process_patrol(delta: float) -> void:
 	if path_follow_node:
 		path_follow_node.progress += patrol_speed * delta
@@ -54,12 +58,11 @@ func process_patrol(delta: float) -> void:
 
 func process_chase(delta: float) -> void:
 	if player:
-		var direction = (player.global_position - global_position).normalized()
-		velocity = direction * chase_speed
-		move_and_slide()
+			var direction = (player.global_position - global_position).normalized()
+			velocity = direction * chase_speed
+			move_and_slide()
 		check_player_collision()
 		update_footsteps(delta, velocity.length() > 1.0)
-
 
 
 func process_return(delta: float) -> void:
@@ -70,8 +73,8 @@ func process_return(delta: float) -> void:
 		if global_position.distance_to(target_pos) < 5.0:
 			current_state = State.PATROL
 		else:
-			velocity = direction * patrol_speed
-			move_and_slide()
+				velocity = direction * patrol_speed
+				move_and_slide()
 			update_footsteps(delta, velocity.length() > 1.0)
 
 func _physics_process(delta: float) -> void:
@@ -81,6 +84,14 @@ func _physics_process(delta: float) -> void:
 	if not player:
 		player = get_parent().get_node_or_null("Player")
 		return
+
+	# Increase speed over time
+	speed_increase_timer += delta
+	if speed_increase_timer >= SPEED_INCREASE_INTERVAL:
+		speed_increase_timer = 0.0
+		patrol_speed += SPEED_INCREMENT
+		chase_speed += SPEED_INCREMENT
+		# print("Ruben speed increased! Patrol: ", patrol_speed, " Chase: ", chase_speed)
 
 	match current_state:
 		State.PATROL:
