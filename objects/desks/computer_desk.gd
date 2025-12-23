@@ -115,9 +115,12 @@ func _on_launch_computer_screen() -> void:
 	get_tree().root.add_child(computer_screen_instance)
 	# Connect to tree_exited to know when the screen closes itself
 
-func _on_computer_screen_closed() -> void:
+func _on_computer_screen_closed(success: bool) -> void:
 	# Re-enable player movement when computer screen is closed
-	computer_screen_instance.queue_free()
+	if computer_screen_instance:
+		computer_screen_instance.queue_free()
 	SignalHandler.player_unlocked.emit() # This sets can_move = true in player.gd
-	SignalHandler.computer_unlocked.emit(frame_id)
-	print("Computer %d unlocked!" % frame_id)
+	
+	if success:
+		SignalHandler.computer_unlocked.emit(frame_id)
+		print("Computer %d unlocked!" % frame_id)

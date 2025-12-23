@@ -41,6 +41,9 @@ func _input(event: InputEvent) -> void:
 			if event.unicode != 0:
 				current_text += char(event.unicode)
 		
+		if event.keycode == KEY_ESCAPE:
+			SignalHandler.computer_screen_closed.emit(false)
+		
 		update_text_display()
 		check_word_match()
 
@@ -68,7 +71,7 @@ func update_target_display() -> void:
 		word_displayed.text = "UNLOCKED"
 		input_player.text = ""
 		await get_tree().create_timer(1.5).timeout
-		SignalHandler.computer_screen_closed.emit()
+		SignalHandler.computer_screen_closed.emit(true)
 
 func check_word_match() -> void:
 	if current_word_index < target_words.size():
