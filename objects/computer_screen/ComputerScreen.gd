@@ -21,8 +21,14 @@ var cursor_timer: float = 0.0
 var cursor_visible: bool = true
 
 var frame_id: int = 0
+var keyboard_sound: AudioStreamPlayer
 
 func _ready() -> void:
+	keyboard_sound = AudioStreamPlayer.new()
+	keyboard_sound.stream = load("res://sounds/keyboard.wav")
+	keyboard_sound.volume_db = -10.0
+	add_child(keyboard_sound)
+
 	var all_words = words_pool + words_pool2 + words_pool3 + words_pool4
 	all_words.shuffle()
 	target_words = all_words.slice(0, max_words)
@@ -48,6 +54,11 @@ func _input(event: InputEvent) -> void:
 		else:
 			if event.unicode != 0:
 				current_text += char(event.unicode)
+		
+		if event.keycode != KEY_ESCAPE:
+			keyboard_sound.play()
+			# Add a small pitch variation for realism
+			keyboard_sound.pitch_scale = randf_range(0.95, 1.05)
 		
 		if event.keycode == KEY_ESCAPE:
 			SignalHandler.computer_screen_closed.emit(frame_id, false)

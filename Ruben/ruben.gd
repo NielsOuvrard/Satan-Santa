@@ -58,9 +58,9 @@ func process_patrol(delta: float) -> void:
 
 func process_chase(delta: float) -> void:
 	if player:
-			var direction = (player.global_position - global_position).normalized()
-			velocity = direction * chase_speed
-			move_and_slide()
+		var direction = (player.global_position - global_position).normalized()
+		velocity = direction * chase_speed
+		move_and_slide()
 		check_player_collision()
 		update_footsteps(delta, velocity.length() > 1.0)
 
@@ -73,8 +73,8 @@ func process_return(delta: float) -> void:
 		if global_position.distance_to(target_pos) < 5.0:
 			current_state = State.PATROL
 		else:
-				velocity = direction * patrol_speed
-				move_and_slide()
+			velocity = direction * patrol_speed
+			move_and_slide()
 			update_footsteps(delta, velocity.length() > 1.0)
 
 func _physics_process(delta: float) -> void:

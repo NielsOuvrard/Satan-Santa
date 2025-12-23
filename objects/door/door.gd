@@ -10,7 +10,16 @@ var opened := false
 @onready var door: Sprite2D = $Door
 @onready var reader: Sprite2D = $Reader
 
+var door_sound: AudioStreamPlayer2D
+
 func _ready() -> void:
+	door_sound = AudioStreamPlayer2D.new()
+	door_sound.stream = load("res://sounds/opening-door.wav")
+	door_sound.volume_db = -10.0
+	door_sound.max_distance = 500.0
+	door_sound.attenuation = 2.0
+	add_child(door_sound)
+
 	hublo.frame = frame_id
 	
 	# Check if the corresponding computer has been unlocked
@@ -23,6 +32,8 @@ func _ready() -> void:
 func interact_door(opening: bool) -> void:
 	if locked:
 		return
+	if opening and not opened:
+		door_sound.play()
 	opened = opening
 	SignalHandler.door_interacted.emit()
 
@@ -33,6 +44,7 @@ func unlock() -> void:
 	door.frame = 1 # opened
 	reader.frame = 0 # opened
 	collision.disabled = true
+	door_sound.play()
 
 func _on_computer_unlocked(computer_id: int) -> void:
 	if computer_id == frame_id:

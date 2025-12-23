@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://lvhhvt6xhd0h"]
+[gd_scene load_steps=44 format=4 uid="uid://lvhhvt6xhd0h"]
 
 [ext_resource type="Texture2D" uid="uid://q2iq28fnyrlo" path="res://objects/tiles/carpet_epitech.png" id="1_3xaek"]
 [ext_resource type="Texture2D" uid="uid://b7t1daem261f6" path="res://objects/tiles/void.png" id="2_s1f3p"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dg2k8vg5lwdxt" path="res://objects/common/exit.png" id="17_avlm1"]
 [ext_resource type="PackedScene" uid="uid://bj6a2bmw6jwyr" path="res://objects/chair/chair_side.tscn" id="17_wwv6n"]
 [ext_resource type="PackedScene" uid="uid://bjhj6kui08xsk" path="res://objects/chair/chair_back.tscn" id="18_yonox"]
-[ext_resource type="PackedScene" path="res://objects/desks/right_mini_desk.tscn" id="19_yonox"]
+[ext_resource type="PackedScene" uid="uid://bnbn3xbg30ycr" path="res://objects/desks/right_mini_desk.tscn" id="19_yonox"]
 [ext_resource type="PackedScene" uid="uid://bmi4cgdah6tri" path="res://objects/lights/hanging_lamp.tscn" id="20_mfeit"]
 [ext_resource type="PackedScene" uid="uid://cwdhkt4tie6o3" path="res://game-scenes/Rooms/room_5.tscn" id="21_mfeit"]
 [ext_resource type="PackedScene" uid="uid://cgxidvjf8t5cu" path="res://game-scenes/Rooms/room_6.tscn" id="22_b2lda"]
@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://ufplhbtcmne8" path="res://objects/torch-item/torch-item.tscn" id="25_4v2lo"]
 [ext_resource type="PackedScene" uid="uid://c5v8jm2qw3xyk" path="res://hud/hud.tscn" id="25_22wjy"]
 [ext_resource type="PackedScene" uid="uid://c2mmiyealj33q" path="res://objects/key/key.tscn" id="25_iyt6w"]
-[ext_resource type="PackedScene" uid="uid://btxem26gkakob" path="res://Ruben/ruben.tscn" id="29_avlm1"]
+[ext_resource type="PackedScene" uid="uid://btxem26gkakob" path="res://ruben/ruben.tscn" id="29_avlm1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tliyg"]
 texture = ExtResource("1_3xaek")
