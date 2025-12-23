@@ -12,8 +12,6 @@ var opened := false
 
 func _ready() -> void:
 	hublo.frame = frame_id
-	if frame_id == 4: # exit
-		hublo.frame = 0
 	
 	# Check if the corresponding computer has been unlocked
 	if frame_id in Data.unlocked_computers:
@@ -53,6 +51,5 @@ func _on_body_exited(body: Node2D) -> void:
 		interact_door(false)
 
 func _on_exit_area_body_entered(body: Node2D) -> void:
-	if frame_id == 4: # exit
-		# change scene to victory_menu
-		pass
+	if frame_id == 3 and not locked and body.is_in_group("player"):
+		get_tree().change_scene_to_file("res://game-scenes/menu_victory/menu_victory.tscn")

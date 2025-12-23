@@ -167,6 +167,7 @@ position = Vector2(-1075, -62)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-205, -62)
+frame_id = 3
 
 [node name="Exit" type="Sprite2D" parent="DoorExit"]
 z_index = 5
