@@ -75,8 +75,8 @@ func _process(delta: float) -> void:
 	# Only allow interaction if computer is unlocked and player is in area
 	if player_in_area and computer_available and not computer_unlocked and Input.is_action_just_pressed("interaction"):
 		print("Computer Desk used")
-		# Pause the game
-		get_tree().paused = true
+		# Disable player movement instead of pausing the game
+		SignalHandler.player_locked.emit() # This sets can_move = false in player.gd
 		# Request computer screen launch via signal
 		SignalHandler.launch_computer_screen.emit()
 
@@ -116,8 +116,8 @@ func _on_launch_computer_screen() -> void:
 	# Connect to tree_exited to know when the screen closes itself
 
 func _on_computer_screen_closed() -> void:
-	# Unpause the game when computer screen is closed
+	# Re-enable player movement when computer screen is closed
 	computer_screen_instance.queue_free()
-	get_tree().paused = false
+	SignalHandler.player_unlocked.emit() # This sets can_move = true in player.gd
 	SignalHandler.computer_unlocked.emit(frame_id)
 	print("Computer %d unlocked!" % frame_id)

@@ -23,6 +23,8 @@ func _ready() -> void:
 	SignalHandler.torch_visibility_changed.connect(_on_torch_visibility_changed)
 	SignalHandler.player_caught.connect(_on_player_caught)
 	SignalHandler.screamer_finished.connect(_on_screamer_finished)
+	SignalHandler.player_locked.connect(_on_player_locked)
+	SignalHandler.player_unlocked.connect(_on_player_unlocked)
 	
 	flashlight_sound = AudioStreamPlayer.new()
 	add_child(flashlight_sound)
@@ -47,6 +49,15 @@ func _on_screamer_finished() -> void:
 	can_move = true
 
 
+func _on_player_locked() -> void:
+	can_move = false
+	velocity = Vector2.ZERO
+
+
+func _on_player_unlocked() -> void:
+	can_move = true
+
+
 func _physics_process(_delta: float) -> void:
 	# Handle torch toggle
 	if has_torch and Input.is_action_just_pressed("toggle_torch"):
@@ -68,7 +79,7 @@ func _physics_process(_delta: float) -> void:
 		torch.visible = true
 	else:
 		torch.visible = false
-		torch_energy = min(max_torch_energy, torch_energy + (torch_drain_rate / 4) * _delta)  # Recharge when off
+		torch_energy = min(max_torch_energy, torch_energy + (torch_drain_rate / 4) * _delta) # Recharge when off
 		SignalHandler.torch_energy_changed.emit(torch_energy, max_torch_energy)
 	
 	# Movement input - supports both keyboard and gamepad

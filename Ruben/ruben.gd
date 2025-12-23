@@ -12,9 +12,12 @@ const FOOTSTEP_INTERVAL: float = 0.7
 
 var initial_position: Vector2
 
+var is_active: bool = true
+
 func _ready() -> void:
 	initial_position = position
 	SignalHandler.screamer_finished.connect(_on_screamer_finished)
+	SignalHandler.player_caught.connect(_on_player_caught)
 	
 	if player_path:
 		player = get_node(player_path)
@@ -28,7 +31,16 @@ func _ready() -> void:
 	footstep_player.attenuation = 3.0
 	add_child(footstep_player)
 
+func _on_player_caught() -> void:
+	# When player is caught (screamer), Ruben should stop moving/interacting
+	is_active = false
+	# Pause the game for the screamer effect
+	get_tree().paused = true
+
 func _physics_process(_delta: float) -> void:
+	if not is_active:
+		return
+
 	if player:
 		var direction = global_position.direction_to(player.global_position)
 		velocity = direction * SPEED
