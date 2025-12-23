@@ -1,8 +1,9 @@
-extends Control
+extends CanvasLayer
 
-@onready var input_player: Label = $InputPlayer
-@onready var word_displayed: Label = $Displayed
+@onready var input_player: Label = $Control/InputPlayer
+@onready var word_displayed: Label = $Control/Displayed
 
+var active: bool = false
 var current_text: String = ""
 
 var words_pool: Array[String] = ["html", "css", "NULL", "pointer", "char", "int", "bool", "void", "main", "function"]
@@ -12,7 +13,7 @@ var words_pool4: Array[String] = ["martin orhesser", "ruben habib", "agnes saez"
 
 var target_words: Array[String] = []
 var current_word_index: int = 0
-var max_words: int = 7
+var max_words: int = 2
 
 func _ready() -> void:
 	var all_words = words_pool + words_pool2 + words_pool3 + words_pool4
@@ -24,6 +25,9 @@ func _ready() -> void:
 	update_text_display()
 
 func _input(event: InputEvent) -> void:
+	if not active:
+		return
+	
 	if current_word_index >= target_words.size():
 		return
 
@@ -64,7 +68,7 @@ func update_target_display() -> void:
 		word_displayed.text = "UNLOCKED"
 		input_player.text = ""
 		await get_tree().create_timer(1.5).timeout
-		queue_free()
+		SignalHandler.computer_screen_closed.emit()
 
 func check_word_match() -> void:
 	if current_word_index < target_words.size():

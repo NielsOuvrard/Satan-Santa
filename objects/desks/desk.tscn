@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://g24oxcbf6b06" path="res://objects/desks/desk.png" id="1_20juv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3k026"]
-size = Vector2(30, 15)
+size = Vector2(32, 12)
 
 [node name="Node2D" type="StaticBody2D"]
 

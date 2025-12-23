@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bmcji5q2g1jm2"]
+[gd_scene load_steps=32 format=4 uid="uid://bmcji5q2g1jm2"]
 
 [ext_resource type="Script" uid="uid://bq3srnpn1aex1" path="res://game-scenes/world_1/world_1.gd" id="1_pnn58"]
 [ext_resource type="Texture2D" uid="uid://q2iq28fnyrlo" path="res://objects/tiles/carpet_epitech.png" id="3_rgd6c"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://ufplhbtcmne8" path="res://objects/torch-item/torch-item.tscn" id="18_p5fh7"]
 [ext_resource type="PackedScene" uid="uid://bmi4cgdah6tri" path="res://objects/lights/hanging_lamp.tscn" id="19_xaapt"]
 [ext_resource type="PackedScene" uid="uid://c2mmiyealj33q" path="res://objects/key/key.tscn" id="20_ic4wv"]
+[ext_resource type="PackedScene" uid="uid://rq46g5p0k5nt" path="res://objects/desks/light_on_desk.tscn" id="20_p6jp3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_je0pp"]
 texture = ExtResource("3_rgd6c")
@@ -142,7 +143,7 @@ zoom = Vector2(12, 12)
 
 [node name="HUD" parent="Player" instance=ExtResource("13_2ta3b")]
 
-[node name="Item" parent="." instance=ExtResource("16_amoit")]
+[node name="mcdo_bag" parent="." instance=ExtResource("16_amoit")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(88, -29)
@@ -177,3 +178,8 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(-141, -38)
 frame = 0
+
+[node name="LightOnDesk" parent="." instance=ExtResource("20_p6jp3")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-37, 3)
