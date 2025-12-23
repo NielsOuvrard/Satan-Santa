@@ -1,15 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci1y2ctem8bll"]
+[gd_scene load_steps=2 format=3 uid="uid://cq5y8l3tem9cc"]
 
-[ext_resource type="Script" uid="uid://cels7k41wqxeq" path="res://game-scenes/main_menu.gd" id="1_main_menu"]
+[ext_resource type="Script" uid="uid://ba3h8k92vwxpq" path="res://game-scenes/game_over/game_over.gd" id="1_game_over"]
 
-[node name="MainMenu" type="Control"]
+[node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_main_menu")
+script = ExtResource("1_game_over")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -33,30 +33,30 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.8, 0.1, 0.1, 1)
 theme_override_font_sizes/font_size = 64
-text = "Satan-Santa"
+text = "GAME OVER"
 horizontal_alignment = 1
 
 [node name="Spacer" type="Control" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="RetryButton" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Play"
+text = "Retry"
 
 [node name="Spacer2" type="Control" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Quit"
+text = "Main Menu"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

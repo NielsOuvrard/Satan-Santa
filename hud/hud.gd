@@ -72,6 +72,8 @@ func _on_screamer_timeout() -> void:
 	screamer_rect.visible = false
 	screamer_player.stop()
 	SignalHandler.screamer_finished.emit()
+	# Change to game over scene
+	get_tree().change_scene_to_file("res://game-scenes/game_over/game_over.tscn")
 
 
 func _on_torch_obtained(visible: bool) -> void:
