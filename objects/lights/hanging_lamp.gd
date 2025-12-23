@@ -10,10 +10,20 @@ extends Node2D
 var is_flickering: bool = false
 var flicker_timer: float = 0.0
 
+var audio_player: AudioStreamPlayer2D
+
 func _ready() -> void:
-	# Initialize lights to max energy
 	light_cone.energy = max_energy
 	light_halo.energy = max_energy
+	
+	audio_player = AudioStreamPlayer2D.new()
+	audio_player.stream = load("res://sounds/background_light.wav")
+	audio_player.max_distance = 350.0
+	audio_player.attenuation = 3.0
+	audio_player.volume_db = -10.0
+	audio_player.finished.connect(func(): audio_player.play())
+	add_child(audio_player)
+	audio_player.play()
 
 func _process(delta: float) -> void:
 	if is_flickering:

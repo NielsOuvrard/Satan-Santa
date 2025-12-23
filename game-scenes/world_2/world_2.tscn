@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bmcji5q2g1jm2"]
+[gd_scene load_steps=31 format=4 uid="uid://bmcji5q2g1jm2"]
 
 [ext_resource type="Script" uid="uid://8fjbtuxncupi" path="res://game-scenes/world_2/world_2.gd" id="1_ndbo8"]
 [ext_resource type="Texture2D" uid="uid://q2iq28fnyrlo" path="res://objects/tiles/carpet_epitech.png" id="3_rgd6c"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c7sj0wkvmq6u3" path="res://player/player.tscn" id="15_qab47"]
 [ext_resource type="PackedScene" uid="uid://v5761xp46n7v" path="res://objects/door/door.tscn" id="17_1qhp4"]
 [ext_resource type="PackedScene" uid="uid://ufplhbtcmne8" path="res://objects/torch-item/torch-item.tscn" id="18_p5fh7"]
+[ext_resource type="PackedScene" uid="uid://btxem26gkakob" path="res://Ruben/ruben.tscn" id="19_cnmju"]
 [ext_resource type="PackedScene" uid="uid://bmi4cgdah6tri" path="res://objects/lights/hanging_lamp.tscn" id="19_xaapt"]
 [ext_resource type="PackedScene" uid="uid://c2mmiyealj33q" path="res://objects/key/key.tscn" id="20_ic4wv"]
 
@@ -244,3 +245,6 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(1186, -179)
 frame = 0
+
+[node name="Ruben2" parent="." instance=ExtResource("19_cnmju")]
+position = Vector2(-42, 2)
