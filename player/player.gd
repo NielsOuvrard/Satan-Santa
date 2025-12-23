@@ -30,14 +30,14 @@ func _physics_process(_delta: float) -> void:
 	# Drain torch energy when on
 	if has_torch and torch_on and torch_energy > 0:
 		torch_energy = max(0, torch_energy - torch_drain_rate * _delta)
-		SignalHandler.update_torch_energy(torch_energy, max_torch_energy)
+		SignalHandler.torch_energy_changed.emit(torch_energy, max_torch_energy)
 		if torch_energy <= 0:
 			torch_on = false
 		torch.visible = true
 	else:
 		torch.visible = false
 		torch_energy = min(max_torch_energy, torch_energy + (torch_drain_rate / 4) * _delta)  # Recharge when off
-		SignalHandler.update_torch_energy(torch_energy, max_torch_energy)
+		SignalHandler.torch_energy_changed.emit(torch_energy, max_torch_energy)
 	
 	# Movement input - supports both keyboard and gamepad
 	var input_x := 0.0

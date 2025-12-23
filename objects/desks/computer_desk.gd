@@ -44,31 +44,41 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# Handle light flickering (similar to hanging_lamp.gd)
-	if is_flickering:
-		flicker_timer -= delta
-		if flicker_timer <= 0.0:
-			is_flickering = false
-			point_light_2d.energy = max_energy
+	var computer_available = _is_computer_available()
+	var computer_unlocked = _is_computer_unlocked()
+	
+	# Handle light flickering only if computer is unlocked
+	if computer_available and not computer_unlocked:
+		if is_flickering:
+			flicker_timer -= delta
+			if flicker_timer <= 0.0:
+				is_flickering = false
+				point_light_2d.energy = max_energy
+			else:
+				var new_energy = randf_range(min_energy, max_energy)
+				if randf() > 0.7:
+					new_energy = 0.0
+				point_light_2d.energy = new_energy
 		else:
-			var new_energy = randf_range(min_energy, max_energy)
-			if randf() > 0.7:
-				new_energy = 0.0
-			point_light_2d.energy = new_energy
+			if randf() < flicker_chance:
+				start_flicker()
 	else:
-		if randf() < flicker_chance:
-			start_flicker()
+		# Keep light off if computer is locked
+		point_light_2d.energy = 0.0
+		is_flickering = false
 
-	# Float the FBkeys sprite up and down (CollectableItem-like)
-	fb_time_passed += delta
-	fb_keys.position.y = fb_initial_position.y + sin(fb_time_passed * fb_float_speed) * fb_float_amplitude
+	# Float the FBkeys sprite up and down (CollectableItem-like) only if unlocked
+	if computer_available and not computer_unlocked:
+		fb_time_passed += delta
+		fb_keys.position.y = fb_initial_position.y + sin(fb_time_passed * fb_float_speed) * fb_float_amplitude
 
-	if player_in_area and Input.is_action_just_pressed("interaction"):
+	# Only allow interaction if computer is unlocked and player is in area
+	if player_in_area and computer_available and not computer_unlocked and Input.is_action_just_pressed("interaction"):
 		print("Computer Desk used")
 		# Pause the game
 		get_tree().paused = true
 		# Request computer screen launch via signal
-		SignalHandler.request_computer_screen()
+		SignalHandler.launch_computer_screen.emit()
 
 func start_flicker() -> void:
 	is_flickering = true
@@ -77,10 +87,17 @@ func start_flicker() -> void:
 	if randf() < 0.3:
 		flicker_timer += randf_range(0.2, 0.5)
 
+func _is_computer_available() -> bool:
+	return frame_id in Data.keyes_unlocked
+
+func _is_computer_unlocked() -> bool:
+	return frame_id in Data.unlocked_computers
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_in_area = true
-		fbkeys_sprite.visible = true
+		if _is_computer_available() and not _is_computer_unlocked():
+			fbkeys_sprite.visible = true
 		print("FBkeys")
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
@@ -100,5 +117,7 @@ func _on_launch_computer_screen() -> void:
 
 func _on_computer_screen_closed() -> void:
 	# Unpause the game when computer screen is closed
-	get_tree().paused = false
 	computer_screen_instance.queue_free()
+	get_tree().paused = false
+	SignalHandler.computer_unlocked.emit(frame_id)
+	print("Computer %d unlocked!" % frame_id)
