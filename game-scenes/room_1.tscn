@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=29 format=4 uid="uid://bvexu7ypcbtu7"]
-=======
-[gd_scene load_steps=35 format=4 uid="uid://bvexu7ypcbtu7"]
-
->>>>>>> e60c3a0 ([ADD] New room, some new sprite furnitures + computer colored sprite)
 [ext_resource type="Texture2D" uid="uid://q2iq28fnyrlo" path="res://objects/tiles/carpet_epitech.png" id="1_3ml3k"]
 [ext_resource type="Texture2D" uid="uid://b7t1daem261f6" path="res://objects/tiles/void.png" id="2_uoxmy"]
 [ext_resource type="Texture2D" uid="uid://c4mj45ycl5r3p" path="res://objects/tiles/wall.png" id="3_co571"]
