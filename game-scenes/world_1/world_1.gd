@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var door: Area2D = $Door
+@onready var door: StaticBody2D = $Door
 
 @onready var key: Area2D = $Key
 

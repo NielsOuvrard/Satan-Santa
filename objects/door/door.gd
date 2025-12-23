@@ -1,16 +1,19 @@
-extends Area2D
+extends StaticBody2D
 
 var opened := false
 
 @export var locked := true
 @export var frame_id := 0
 
+@onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var hublo: Sprite2D = $Hublo
 @onready var door: Sprite2D = $Door
 @onready var reader: Sprite2D = $Reader
 
 func _ready() -> void:
 	hublo.frame = frame_id
+	if frame_id == 4: # exit
+		hublo.frame = 0
 	
 	# Check if the corresponding computer has been unlocked
 	if frame_id in Data.unlocked_computers:
@@ -24,10 +27,6 @@ func interact_door(opening: bool) -> void:
 		return
 	opened = opening
 	SignalHandler.door_interacted.emit()
-	#if opening:
-		#animated_sprite_2d.play("opening")
-	#else:
-		#animated_sprite_2d.play("closing")
 
 func unlock() -> void:
 	locked = false
@@ -35,6 +34,7 @@ func unlock() -> void:
 	hublo.visible = false
 	door.frame = 1 # opened
 	reader.frame = 0 # opened
+	collision.disabled = true
 
 func _on_computer_unlocked(computer_id: int) -> void:
 	if computer_id == frame_id:
@@ -52,9 +52,7 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		interact_door(false)
 
-
-#func _on_animated_sprite_2d_animation_finished() -> void:
-	#if opened:
-		#animated_sprite_2d.play("opened")
-	#else:
-		#animated_sprite_2d.play("closed")
+func _on_exit_area_body_entered(body: Node2D) -> void:
+	if frame_id == 4: # exit
+		# change scene to victory_menu
+		pass

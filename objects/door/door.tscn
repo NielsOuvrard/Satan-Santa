@@ -1,26 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://v5761xp46n7v"]
+[gd_scene load_steps=7 format=3 uid="uid://v5761xp46n7v"]
 
 [ext_resource type="Script" uid="uid://b3gwgmif44lo5" path="res://objects/door/door.gd" id="1_v6xrn"]
 [ext_resource type="Texture2D" uid="uid://b3njamtan6h5k" path="res://objects/door/Hublots.png" id="2_0i0ho"]
 [ext_resource type="Texture2D" uid="uid://dk5b44hejkn6h" path="res://objects/door/Doors.png" id="2_y765d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6xrn"]
-size = Vector2(44, 30)
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0i0ho"]
 load_path = "res://.godot/imported/Reader.png-eb88313b9483049106465beabc738646.ctex"
 
-[node name="Door" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6xrn"]
+size = Vector2(32, 64)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y765d"]
+radius = 12.0
+height = 62.0
+
+[node name="Door" type="StaticBody2D"]
 script = ExtResource("1_v6xrn")
+frame_id = 4
 
 [node name="Ground" type="ColorRect" parent="."]
 offset_left = -16.0
 offset_top = -64.0
 offset_right = 16.0
 color = Color(0.012645884, 0.012645883, 0.012645883, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_v6xrn")
 
 [node name="Reader" type="Sprite2D" parent="."]
 position = Vector2(26, -34)
@@ -38,5 +40,14 @@ position = Vector2(0, -32)
 texture = ExtResource("2_0i0ho")
 hframes = 4
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_v6xrn")
+
+[node name="exit_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit_area"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_y765d")
+
+[connection signal="body_entered" from="exit_area" to="." method="_on_exit_area_body_entered"]

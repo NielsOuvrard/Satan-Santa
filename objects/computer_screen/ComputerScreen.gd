@@ -3,6 +3,8 @@ extends CanvasLayer
 @onready var input_player: Label = $Control/InputPlayer
 @onready var word_displayed: Label = $Control/Displayed
 
+const BLINK_INTERVAL: float = 0.5
+
 var active: bool = false
 var current_text: String = ""
 
@@ -14,6 +16,11 @@ var words_pool4: Array[String] = ["martin orhesser", "ruben habib", "agnes saez"
 var target_words: Array[String] = []
 var current_word_index: int = 0
 var max_words: int = 2
+
+var cursor_timer: float = 0.0
+var cursor_visible: bool = true
+
+var frame_id: int = 0
 
 func _ready() -> void:
 	var all_words = words_pool + words_pool2 + words_pool3 + words_pool4
@@ -31,6 +38,7 @@ func _input(event: InputEvent) -> void:
 	if current_word_index >= target_words.size():
 		return
 
+	print("Frame ID in ComputerScreen: %d" % frame_id)
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_ENTER or event.keycode == KEY_KP_ENTER:
 			current_text = ""
@@ -42,14 +50,10 @@ func _input(event: InputEvent) -> void:
 				current_text += char(event.unicode)
 		
 		if event.keycode == KEY_ESCAPE:
-			SignalHandler.computer_screen_closed.emit(false)
+			SignalHandler.computer_screen_closed.emit(frame_id, false)
 		
 		update_text_display()
 		check_word_match()
-
-var cursor_timer: float = 0.0
-var cursor_visible: bool = true
-const BLINK_INTERVAL: float = 0.5
 
 func _process(delta: float) -> void:
 	cursor_timer += delta
@@ -71,7 +75,7 @@ func update_target_display() -> void:
 		word_displayed.text = "UNLOCKED"
 		input_player.text = ""
 		await get_tree().create_timer(1.0).timeout
-		SignalHandler.computer_screen_closed.emit(true)
+		SignalHandler.computer_screen_closed.emit(frame_id, true)
 
 func check_word_match() -> void:
 	if current_word_index < target_words.size():

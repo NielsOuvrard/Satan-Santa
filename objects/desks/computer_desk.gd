@@ -78,7 +78,7 @@ func _process(delta: float) -> void:
 		# Disable player movement instead of pausing the game
 		SignalHandler.player_locked.emit() # This sets can_move = false in player.gd
 		# Request computer screen launch via signal
-		SignalHandler.launch_computer_screen.emit()
+		SignalHandler.launch_computer_screen.emit(frame_id)
 
 func start_flicker() -> void:
 	is_flickering = true
@@ -98,24 +98,27 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		player_in_area = true
 		if _is_computer_available() and not _is_computer_unlocked():
 			fbkeys_sprite.visible = true
-		print("FBkeys")
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_in_area = false
 		fbkeys_sprite.visible = false
 
-func _on_launch_computer_screen() -> void:
+func _on_launch_computer_screen(frame_id: int) -> void:
+	if frame_id != self.frame_id:
+		return
 	# Launch the ComputerScreen scene as an HUD on top of everything
 	var computer_screen = load("res://objects/computer_screen/ComputerScreen.tscn")
-	computer_screen_instance = computer_screen.instantiate()
-	#computer_screen_instance.z_index = 100
+	computer_screen_instance = computer_screen.instantiate(frame_id)
+	computer_screen_instance.frame_id = frame_id
 	computer_screen_instance.process_mode = Node.PROCESS_MODE_ALWAYS
 	computer_screen_instance.active = true
 	get_tree().root.add_child(computer_screen_instance)
 	# Connect to tree_exited to know when the screen closes itself
 
-func _on_computer_screen_closed(success: bool) -> void:
+func _on_computer_screen_closed(computer_id: int, success: bool) -> void:
+	if computer_id != frame_id:
+		return
 	# Re-enable player movement when computer screen is closed
 	if computer_screen_instance:
 		computer_screen_instance.queue_free()
@@ -123,5 +126,5 @@ func _on_computer_screen_closed(success: bool) -> void:
 	SignalHandler.player_unlocked.emit() # This sets can_move = true in player.gd
 	
 	if success:
-		SignalHandler.computer_unlocked.emit(frame_id)
 		print("Computer %d unlocked!" % frame_id)
+		SignalHandler.computer_unlocked.emit(frame_id)
