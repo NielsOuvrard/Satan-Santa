@@ -12,6 +12,25 @@ const FOOTSTEP_INTERVAL: float = 0.7
 
 var initial_position: Vector2
 
+enum State {
+	PATROL,
+	CHASE,
+	RETURN
+}
+
+var current_state = State.PATROL
+
+@export var patrol_speed = 30.0
+@export var chase_speed = 50.0
+@export var path_follow_node: PathFollow2D
+
+@export var detection_range: float = 200.0:
+	set(value):
+		detection_range = value
+		var shape_node = $DetectionArea/CollisionShape2D
+		if shape_node and shape_node.shape is CircleShape2D:
+			shape_node.shape.radius = value
+
 func _ready() -> void:
 	initial_position = position
 	SignalHandler.screamer_finished.connect(_on_screamer_finished)
@@ -28,27 +47,69 @@ func _ready() -> void:
 	footstep_player.attenuation = 3.0
 	add_child(footstep_player)
 
-func _physics_process(_delta: float) -> void:
+func process_patrol(delta: float) -> void:
+	if path_follow_node:
+		path_follow_node.progress += patrol_speed * delta
+		global_position = path_follow_node.global_position
+		_update_footsteps(delta, true)
+
+func process_chase(delta: float) -> void:
 	if player:
-		var direction = global_position.direction_to(player.global_position)
-		velocity = direction * SPEED
+		var direction = (player.global_position - global_position).normalized()
+		velocity = direction * chase_speed
 		move_and_slide()
+		_check_player_collision()
+		_update_footsteps(delta, velocity.length() > 1.0)
+
+func process_return(delta: float) -> void:
+	if path_follow_node:
+		var target_pos = path_follow_node.global_position
+		var direction = (target_pos - global_position).normalized()
 		
-		for i in get_slide_collision_count():
-			var collision = get_slide_collision(i)
-			var collider = collision.get_collider()
-			if collider.is_in_group("player"):
-				SignalHandler.player_caught.emit()
-		
-		if velocity.length() > 1.0:
-			footstep_timer -= _delta
-			if footstep_timer <= 0.0:
-				footstep_player.play()
-				footstep_timer = FOOTSTEP_INTERVAL
+		if global_position.distance_to(target_pos) < 5.0:
+			current_state = State.PATROL
 		else:
-			footstep_timer = 0.0
-	else:
+			velocity = direction * patrol_speed
+			move_and_slide()
+			_update_footsteps(delta, velocity.length() > 1.0)
+
+func _physics_process(delta: float) -> void:
+	if not player:
 		player = get_parent().get_node_or_null("Player")
+		return
+
+	match current_state:
+		State.PATROL:
+			process_patrol(delta)
+		State.CHASE:
+			process_chase(delta)
+		State.RETURN:
+			process_return(delta)
+
+func _check_player_collision() -> void:
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider.is_in_group("player"):
+			SignalHandler.player_caught.emit()
+
+func _update_footsteps(delta: float, is_moving: bool) -> void:
+	if is_moving:
+		footstep_timer -= delta
+		if footstep_timer <= 0.0:
+			footstep_player.play()
+			footstep_timer = FOOTSTEP_INTERVAL
+	else:
+		footstep_timer = 0.0
+
+# --- Signaux de Detection (A connecter depuis l'éditeur) ---
+func _on_detection_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		current_state = State.CHASE
+
+func _on_detection_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		current_state = State.RETURN
 
 
 func _on_screamer_finished() -> void:
