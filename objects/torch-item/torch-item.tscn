@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ufplhbtcmne8"]
 
 [ext_resource type="PackedScene" uid="uid://8lfmd0hpxc1t" path="res://objects/common/collectable_item.tscn" id="1_mubk2"]
-[ext_resource type="Texture2D" uid="uid://c1xlwkvgn724v" path="res://objects/torch-item/TorchItem.png" id="2_prhwr"]
+[ext_resource type="Texture2D" uid="uid://cv4epuyrxx6aq" path="res://objects/torch-item/TorchItem.png" id="2_prhwr"]
 [ext_resource type="Script" uid="uid://bm0capmqrgujg" path="res://objects/torch-item/torch-item.gd" id="2_w7khx"]
 
 [node name="TorchItem" instance=ExtResource("1_mubk2")]
