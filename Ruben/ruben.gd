@@ -45,9 +45,9 @@ func _ready() -> void:
 	
 	footstep_player = AudioStreamPlayer2D.new()
 	footstep_player.stream = footstep_sound
-	footstep_player.volume_db = -15.0
-	footstep_player.max_distance = 500.0
-	footstep_player.attenuation = 3.0
+	footstep_player.volume_db = -5.0
+	footstep_player.max_distance = 1000.0
+	footstep_player.attenuation = 2.0
 	add_child(footstep_player)
 	
 func process_patrol(delta: float) -> void:
@@ -113,7 +113,13 @@ func update_footsteps(delta: float, is_moving: bool) -> void:
 		footstep_timer -= delta
 		if footstep_timer <= 0.0:
 			footstep_player.play()
-			footstep_timer = FOOTSTEP_INTERVAL
+			
+			var current_speed = patrol_speed
+			if current_state == State.CHASE:
+				current_speed = chase_speed
+			
+			var dynamic_interval = FOOTSTEP_INTERVAL * (35.0 / max(1.0, current_speed))
+			footstep_timer = dynamic_interval
 	else:
 		footstep_timer = 0.0
 
