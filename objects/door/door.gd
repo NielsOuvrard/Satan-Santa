@@ -64,4 +64,4 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_exit_area_body_entered(body: Node2D) -> void:
 	if frame_id == 3 and not locked and body.is_in_group("player"):
-		get_tree().change_scene_to_file("res://game-scenes/menu_victory/menu_victory.tscn")
+		get_tree().change_scene_to_file("res://game-scenes/end_menu/end.tscn")
